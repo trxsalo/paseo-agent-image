@@ -2,9 +2,13 @@
 
 Dockerfile is pinned to the official Paseo multi-architecture manifest digest verified 2026-10-21, with Codex CLI `0.163.0` and Claude Code `2.1.306`.
 
-## Build and publish
+## GitHub Actions workflow
 
-Use a machine or CI runner with Docker Buildx and authorization to push to the Docker Hub account:
+The repository includes a manually triggered multi-architecture build workflow. Before the first run, add a Docker Hub access token with read/write permission to this private GitHub repository as the Actions secret `DOCKERHUB_TOKEN`. Add it directly in GitHub Settings → Secrets and variables → Actions; never paste it into chat or commit it. Then run **Build and publish Paseo CLI image** from the Actions tab. The image repository `trxsalo/paseo-agent-clis` has been created as private.
+
+## Build and publish locally
+
+If using another CI runner or local Buildx instead, authenticate to Docker Hub through its credential prompt/secret store and run:
 
 ```bash
 docker buildx build \
