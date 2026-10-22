@@ -46,6 +46,6 @@ jobs:
           file: ./Dockerfile
           platforms: linux/amd64,linux/arm64
           push: true
-          tags: docker.io/trxsalo/paseo-agent-clis:2026-10-22-providers
+          tags: docker.io/trxsalo/paseo-agent-clis:2026-10-22-providers-gh
           cache-from: type=gha
           cache-to: type=gha,mode=max
