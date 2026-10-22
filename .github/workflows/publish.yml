@@ -14,10 +14,18 @@ jobs:
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
       - name: Validate permission entrypoint syntax
-        run: sh -n docker/paseo-agent-config-permissions.sh
+        run: |
+          sh -n docker/paseo-agent-config-permissions.sh
+          sh -n docker/paseo-muse-launcher.sh
+
+      - name: Validate provider smoke-test syntax
+        run: sh -n tests/smoke-provider-binaries.sh
 
       - name: Test persistent CLI permission repair
         run: sudo python3 tests/test_permissions_entrypoint.py
+
+      - name: Test Muse launcher staging
+        run: python3 tests/test_muse_launcher_wrapper.py
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@99012661954931238ded8c8b007157a8430204e1 # v4.4.0
@@ -38,6 +46,6 @@ jobs:
           file: ./Dockerfile
           platforms: linux/amd64,linux/arm64
           push: true
-          tags: docker.io/trxsalo/paseo-agent-clis:2026-10-22
+          tags: docker.io/trxsalo/paseo-agent-clis:2026-10-22-providers
           cache-from: type=gha
           cache-to: type=gha,mode=max
