@@ -12,7 +12,6 @@ ARG PI_VERSION=1.4.0
 ARG OMP_VERSION=18.12.6
 ARG ANTIGRAVITY_VERSION=1.4.4
 ARG ANTIGRAVITY_BUILD_ID=4783783166214144
-ARG GH_VERSION=2.103.0
 ARG MUSE_LAUNCHER_SHA256=c6db294799a190ca380da274beb3b9c0e160e0da9681a3d364ce8b0e5fa3a4bc
 
 RUN npm install --global \
@@ -22,7 +21,7 @@ RUN npm install --global \
       "@opencode/cli@${OPENCODE_VERSION}" \
       "@earendil-works/pi-coding-agent@${PI_VERSION}"
 
-# Install architecture-specific standalone CLIs from checksum-verified releases.
+# Install native, architecture-specific provider CLIs from checksum-verified releases.
 ARG TARGETARCH
 RUN set -eux; \
     case "$TARGETARCH" in \
@@ -30,14 +29,12 @@ RUN set -eux; \
         omp_asset=omp-linux-x64; \
         omp_sha256=85d9daf3a05fc76e8cd425ae1904eb576af8d21cc85fcf4690742626e07ccfa4; \
         agy_path=linux-x64/cli_linux_x64.tar.gz; \
-        agy_sha512=7ce149d350344c1046c7b59b6659bcc5d659f351bf3a07c6c085887d93427ceb89d927752e4ccd0844b53ffb91d33d6a49f72835ceb276c7cffdd13cfb8023b8; \
-        gh_sha256=fdd768eb70f6409f80fcfa9f3a1c0adf0fc98d827ab3ce0bed2ac22762c5d786 ;; \
+        agy_sha512=7ce149d350344c1046c7b59b6659bcc5d659f351bf3a07c6c085887d93427ceb89d927752e4ccd0844b53ffb91d33d6a49f72835ceb276c7cffdd13cfb8023b8 ;; \
       arm64) \
         omp_asset=omp-linux-arm64; \
         omp_sha256=eee8e586274cef2e725c218b2b28b48ca9965d46dd58f60998cb347eca4ad0cf; \
         agy_path=linux-arm/cli_linux_arm64.tar.gz; \
-        agy_sha512=7bfc4f7e5e2dda4cd0c536c72cf9725c2918a038028ad11fa4f7f5e57db77e9ff7d6b9beca05cd85618b77dd3e77de64b63629d33e5779f29111390dc53c7aaf; \
-        gh_sha256=7f322df34e624d14f5ec0c4acb121fd6dfa14392fdbbd1066aa8e0a05ac3721e ;; \
+        agy_sha512=7bfc4f7e5e2dda4cd0c536c72cf9725c2918a038028ad11fa4f7f5e57db77e9ff7d6b9beca05cd85618b77dd3e77de64b63629d33e5779f29111390dc53c7aaf ;; \
       *) echo "Unsupported target architecture: $TARGETARCH" >&2; exit 1 ;; \
     esac; \
     curl --fail --silent --show-error --location --retry 3 --proto '=https' --proto-redir '=https' --tlsv1.2 \
@@ -52,6 +49,15 @@ RUN set -eux; \
     mkdir -p /tmp/agy; \
     tar -xzf /tmp/agy.tar.gz -C /tmp/agy antigravity; \
     install -m 0755 /tmp/agy/antigravity /usr/local/bin/agy; \
+    rm -rf /tmp/omp /tmp/agy.tar.gz /tmp/agy
+
+ARG GH_VERSION=2.103.0
+RUN set -eux; \
+    case "$TARGETARCH" in \
+      amd64) gh_sha256=fdd768eb70f6409f80fcfa9f3a1c0adf0fc98d827ab3ce0bed2ac22762c5d786 ;; \
+      arm64) gh_sha256=7f322df34e624d14f5ec0c4acb121fd6dfa14392fdbbd1066aa8e0a05ac3721e ;; \
+      *) echo "Unsupported target architecture: $TARGETARCH" >&2; exit 1 ;; \
+    esac; \
     gh_dir="gh_${GH_VERSION}_linux_${TARGETARCH}"; \
     curl --fail --silent --show-error --location --retry 3 --proto '=https' --proto-redir '=https' --tlsv1.2 \
       "https://github.com/cli/cli/releases/download/v${GH_VERSION}/${gh_dir}.tar.gz" \
@@ -61,7 +67,7 @@ RUN set -eux; \
     tar -xzf /tmp/gh.tar.gz -C /tmp/gh "$gh_dir/bin/gh" "$gh_dir/LICENSE"; \
     install -m 0755 "/tmp/gh/$gh_dir/bin/gh" /usr/local/bin/gh; \
     install -m 0644 "/tmp/gh/$gh_dir/LICENSE" /usr/local/share/licenses/gh/LICENSE; \
-    rm -rf /tmp/omp /tmp/agy.tar.gz /tmp/agy /tmp/gh.tar.gz /tmp/gh
+    rm -rf /tmp/gh.tar.gz /tmp/gh
 
 # Install Meta's hash-pinned launcher; a small wrapper copies it into the
 # service user's writable persistent home so its binary/update state can live
