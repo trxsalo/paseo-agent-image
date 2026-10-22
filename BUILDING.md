@@ -1,6 +1,6 @@
 # Paseo image with Codex CLI and Claude Code
 
-Dockerfile is pinned to the official Paseo multi-architecture manifest digest verified 2026-10-21, with Codex CLI `0.163.0` and Claude Code `2.1.306`.
+Dockerfile is pinned to the official Paseo multi-architecture manifest digest verified 2026-10-21, with Codex CLI `0.163.0` and Claude Code `2.1.306`. A startup wrapper repairs ownership of the persistent Codex, Claude, XDG, Gemini, Aider, and OpenCode config paths to UID/GID `1000:1000`; it applies private modes to Codex's directory, `tmp`, and `config.toml`, plus Claude's config directory and `.claude.json`. It then delegates to the pinned image's original Tini/Paseo entrypoint. This is necessary because `/home/paseo` is a persistent volume and masks ownership changes made only during image build.
 
 ## GitHub Actions workflow
 
@@ -13,7 +13,7 @@ If using another CI runner or local Buildx instead, authenticate to Docker Hub t
 ```bash
 docker buildx build \
   --platform linux/amd64,linux/arm64 \
-  --tag docker.io/trxsalo/paseo-agent-clis:2026-10-21 \
+  --tag docker.io/trxsalo/paseo-agent-clis:2026-10-22 \
   --push .
 ```
 
@@ -21,7 +21,11 @@ The Docker Hub repository must exist and allow pushes. Keep it private unless pu
 
 ## Deploy in Dokploy
 
-After the push is confirmed, change only the Paseo Compose `image:` reference to `docker.io/trxsalo/paseo-agent-clis:2026-10-21`, then redeploy with fresh volumes disabled. Preserve the existing `/home/paseo` and `/workspace` volumes.
+After the push is confirmed, change only the Paseo Compose `image:` reference to `docker.io/trxsalo/paseo-agent-clis:2026-10-22`, then redeploy with fresh volumes disabled. Preserve the existing `/home/paseo` and `/workspace` volumes.
+
+## Persistent AI CLI permissions
+
+The startup wrapper covers the installed Codex and Claude CLIs and common user-level config locations for other agent CLIs. It repairs ownership before Paseo drops privileges, including files previously created from a root shell. Log in and run provider CLIs as the `paseo` user—not root—so new credentials remain accessible to the app; the commands below show the Docker-host form.
 
 ## Authenticate inside the running container
 
