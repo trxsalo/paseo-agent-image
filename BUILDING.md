@@ -4,7 +4,7 @@ Dockerfile is pinned to the official Paseo multi-architecture manifest digest ve
 
 ## GitHub Actions workflow
 
-The repository includes a manually triggered multi-architecture build workflow. Before the first run, add a Docker Hub access token with read/write permission to this private GitHub repository as the Actions secret `DOCKERHUB_TOKEN`. Add it directly in GitHub Settings → Secrets and variables → Actions; never paste it into chat or commit it. Then run **Build and publish Paseo CLI image** from the Actions tab. The image repository `trxsalo/paseo-agent-clis` has been created as private.
+The repository includes a manually triggered multi-architecture build workflow. Before the first run, add a Docker Hub access token with read/write permission to this private GitHub repository as the Actions secret `DOCKERHUB_TOKEN`. Add it directly in GitHub Settings → Secrets and variables → Actions; never paste it into chat or commit it. Then run **Build and publish Paseo CLI image** from the Actions tab. The image repository `trxsalo/paseo-agent-clis` is currently public, so anyone can pull it. Keep that visibility intentional; if changing it, update the Dokploy pull-auth configuration as well.
 
 ## Build and publish locally
 
