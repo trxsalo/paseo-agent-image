@@ -36,12 +36,12 @@ Run each provider CLI from the Dokploy host/container console as the `paseo` use
 To connect a GitHub repository, authenticate `gh` inside the container and clone into a new directory on the persistent workspace volume:
 
 ```bash
-docker exec -it --user paseo paseo gh auth login
-docker exec -it --user paseo paseo gh auth setup-git
-docker exec -it --user paseo paseo gh repo clone OWNER/REPO /workspace/REPO
+gh auth login
+gh auth setup-git
+gh repo clone OWNER/REPO /workspace/REPO
 ```
 
-Complete the login flow in the terminal/browser without sharing its device code or token in chat. Then select `/workspace/REPO` in Paseo. Private repositories require an account with access.
+Complete the login flow in the terminal/browser without sharing its device code or token in chat. Then select `/workspace/REPO` in Paseo. Private repositories require an account with access. The login state stays in the persistent `/home/paseo` volume; treat that volume as sensitive because `gh` may store its token there when no OS credential store is available.
 
 For example, verify Codex and Claude discovery with:
 
