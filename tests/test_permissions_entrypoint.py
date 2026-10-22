@@ -15,11 +15,16 @@ if os.geteuid() != 0:
 script = ENTRYPOINT.read_text(encoding="utf-8")
 if script.count(DELEGATE) != 1:
     raise SystemExit("expected exactly one delegation to Paseo's original entrypoint")
-test_script = script.replace(DELEGATE, "exit 0")
+HOME_ASSIGNMENT = "home=/home/paseo"
+if script.count(HOME_ASSIGNMENT) != 1:
+    raise SystemExit("expected exactly one fixed Paseo home assignment")
 
 with tempfile.TemporaryDirectory(prefix="paseo-permissions-") as tmp:
     root = Path(tmp)
     home = root / "home"
+    test_script = script.replace(DELEGATE, "exit 0").replace(
+        HOME_ASSIGNMENT, f"home={home}"
+    )
     codex = home / ".codex"
     (codex / "tmp").mkdir(parents=True)
     (codex / "config.toml").write_text("model = 'test'\n", encoding="utf-8")
@@ -30,9 +35,23 @@ with tempfile.TemporaryDirectory(prefix="paseo-permissions-") as tmp:
     xdg = home / ".config"
     (xdg / "opencode").mkdir(parents=True)
     (xdg / "opencode" / "settings.json").write_text("{}\n", encoding="utf-8")
+    (xdg / "github-copilot").mkdir()
+    (xdg / "github-copilot" / "hosts.json").write_text("{}\n", encoding="utf-8")
+    pi = home / ".pi" / "agent"
+    pi.mkdir(parents=True)
+    (pi / "auth.json").write_text("{}\n", encoding="utf-8")
+    (home / ".omp").mkdir()
+    (home / ".omp" / "settings.json").write_text("{}\n", encoding="utf-8")
     (home / ".gemini").mkdir()
     (home / ".aider.conf.yml").write_text("test: true\n", encoding="utf-8")
     (home / ".opencode").mkdir()
+    xdg_data = home / ".local" / "share"
+    (xdg_data / "opencode").mkdir(parents=True)
+    (xdg_data / "opencode" / "auth.json").write_text("{}\n", encoding="utf-8")
+    (xdg_data / "muse").mkdir()
+    (xdg_data / "muse" / "state.json").write_text("{}\n", encoding="utf-8")
+    (home / ".custom-provider").mkdir()
+    (home / ".custom-provider" / "auth.json").write_text("{}\n", encoding="utf-8")
     outside = root / "outside"
     outside.mkdir()
     marker = outside / "keep-root-owned"
@@ -45,15 +64,21 @@ with tempfile.TemporaryDirectory(prefix="paseo-permissions-") as tmp:
         "CODEX_HOME": str(codex),
         "CLAUDE_CONFIG_DIR": str(claude),
         "XDG_CONFIG_HOME": str(xdg),
+        "XDG_DATA_HOME": str(xdg_data),
     })
     result = subprocess.run(["/bin/sh", "-c", test_script], env=env, text=True, capture_output=True)
     if result.returncode:
         raise SystemExit(f"entrypoint smoke test failed: {result.stderr.strip()}")
 
-    owned_paths = [codex, codex / "tmp", codex / "config.toml", claude,
+    owned_paths = [home, codex, codex / "tmp", codex / "config.toml", claude,
                    claude / ".credentials.json", home / ".claude.json", xdg,
-                   xdg / "opencode" / "settings.json", home / ".gemini",
-                   home / ".aider.conf.yml", home / ".opencode"]
+                   xdg / "opencode" / "settings.json",
+                   xdg / "github-copilot" / "hosts.json", pi,
+                   pi / "auth.json", home / ".omp", home / ".omp" / "settings.json",
+                   home / ".gemini", home / ".aider.conf.yml", home / ".opencode",
+                   xdg_data, xdg_data / "opencode" / "auth.json",
+                   xdg_data / "muse" / "state.json",
+                   home / ".custom-provider" / "auth.json"]
     for path in owned_paths:
         st = path.stat()
         if (st.st_uid, st.st_gid) != (1000, 1000):
