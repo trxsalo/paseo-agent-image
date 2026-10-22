@@ -1,6 +1,6 @@
-# Paseo image with screenshot provider CLIs
+# Paseo image with screenshot provider CLIs and GitHub CLI
 
-This derived image keeps the official Paseo multi-architecture base pinned to the digest verified on 2026-10-21. It installs Codex CLI `0.163.0`, Claude Code `2.1.306`, GitHub Copilot CLI `1.0.102`, OpenCode `2.1.2`, Pi `1.4.0`, Oh My Pi `18.12.6`, and Antigravity CLI `1.4.4`. Muse Code's official launcher is pinned by SHA-256; a small wrapper stages it in the service user's writable `/home/paseo/.local/bin` on first use, where the launcher downloads the current stable Muse binary. This avoids adding several hundred megabytes to each image architecture.
+This derived image keeps the official Paseo multi-architecture base pinned to the digest verified on 2026-10-21. It installs Codex CLI `0.163.0`, Claude Code `2.1.306`, GitHub Copilot CLI `1.0.102`, OpenCode `2.1.2`, Pi `1.4.0`, Oh My Pi `18.12.6`, Antigravity CLI `1.4.4`, and GitHub CLI `2.103.0`. Muse Code's official launcher is pinned by SHA-256; a small wrapper stages it in the service user's writable `/home/paseo/.local/bin` on first use, where the launcher downloads the current stable Muse binary. This avoids adding several hundred megabytes to each image architecture.
 
 The image does not enable providers in Paseo or include any provider credentials. Complete each provider's own interactive authentication as the `paseo` user. The Oh My Pi toggle remains a Paseo setting and is not changed by installing its CLI. Antigravity can run with broad workspace/command permissions in Paseo; enable it only if that access is intended.
 
@@ -19,7 +19,7 @@ If using another CI runner or local Buildx instead, authenticate to Docker Hub t
 ```bash
 docker buildx build \
   --platform linux/amd64,linux/arm64 \
-  --tag docker.io/trxsalo/paseo-agent-clis:2026-10-22-providers \
+  --tag docker.io/trxsalo/paseo-agent-clis:2026-10-22-providers-gh \
   --push .
 ```
 
@@ -27,11 +27,21 @@ The Docker Hub repository must exist and allow pushes. Keep it private unless pu
 
 ## Deploy in Dokploy
 
-After the push is confirmed and deployment is approved, change only the Paseo Compose `image:` reference to `docker.io/trxsalo/paseo-agent-clis:2026-10-22-providers`, then redeploy with fresh volumes disabled. Preserve the existing `/home/paseo` and `/workspace` volumes.
+After the push is confirmed and deployment is approved, change only the Paseo Compose `image:` reference to `docker.io/trxsalo/paseo-agent-clis:2026-10-22-providers-gh`, then redeploy with fresh volumes disabled. Preserve the existing `/home/paseo` and `/workspace` volumes.
 
 ## Authenticate inside the running container
 
-Run each provider CLI from the Dokploy host/container console as the `paseo` user and complete its own interactive sign-in. The installed command names are `codex`, `claude`, `copilot`, `opencode`, `pi`, `omp`, `agy`, and `muse`. Do not copy host authentication directories into the container or put credentials in the image, Compose, chat, or logs.
+Run each provider CLI from the Dokploy host/container console as the `paseo` user and complete its own interactive sign-in. The installed command names are `codex`, `claude`, `copilot`, `opencode`, `pi`, `omp`, `agy`, `muse`, and `gh`. Do not copy host authentication directories into the container or put credentials in the image, Compose, chat, or logs.
+
+To connect a GitHub repository, authenticate `gh` inside the container and clone into a new directory on the persistent workspace volume:
+
+```bash
+docker exec -it --user paseo paseo gh auth login
+docker exec -it --user paseo paseo gh auth setup-git
+docker exec -it --user paseo paseo gh repo clone OWNER/REPO /workspace/REPO
+```
+
+Complete the login flow in the terminal/browser without sharing its device code or token in chat. Then select `/workspace/REPO` in Paseo. Private repositories require an account with access.
 
 For example, verify Codex and Claude discovery with:
 
