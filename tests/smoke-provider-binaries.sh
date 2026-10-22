@@ -1,7 +1,7 @@
 #!/bin/sh
 set -eu
 
-for cli in codex claude copilot opencode pi omp agy muse; do
+for cli in codex claude copilot opencode pi omp agy muse gh; do
   command -v "$cli" >/dev/null 2>&1 || {
     printf 'missing provider CLI: %s\n' "$cli" >&2
     exit 1
@@ -9,7 +9,7 @@ for cli in codex claude copilot opencode pi omp agy muse; do
 done
 
 # These version checks must not perform provider authentication.
-for cli in codex claude copilot opencode pi omp; do
+for cli in codex claude copilot opencode pi omp gh; do
   if ! timeout 45s "$cli" --version >/dev/null 2>&1; then
     printf 'provider CLI version check failed: %s\n' "$cli" >&2
     exit 1
