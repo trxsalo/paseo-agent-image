@@ -10,8 +10,11 @@ done
 
 # These version checks must not perform provider authentication.
 for cli in codex claude copilot opencode pi omp gh; do
-  if ! timeout 45s "$cli" --version >/dev/null 2>&1; then
-    printf 'provider CLI version check failed: %s\n' "$cli" >&2
+  if output=$(timeout 45s "$cli" --version 2>&1); then
+    :
+  else
+    status=$?
+    printf 'CLI version check failed: %s (exit %s)\n%s\n' "$cli" "$status" "$output" >&2
     exit 1
   fi
 done
