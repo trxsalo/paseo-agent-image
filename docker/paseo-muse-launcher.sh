@@ -1,6 +1,12 @@
 #!/bin/sh
 set -eu
 
+# This launcher executes state in a user-writable home. Never do that as root.
+if [ "$(/usr/bin/id -u)" -eq 0 ]; then
+  printf '%s\n' 'muse: run as the paseo user, not root' >&2
+  exit 1
+fi
+
 home=${HOME:-/home/paseo}
 source=/usr/local/share/paseo-muse-launcher.sh
 expected_sha256=c6db294799a190ca380da274beb3b9c0e160e0da9681a3d364ce8b0e5fa3a4bc

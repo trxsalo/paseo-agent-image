@@ -1,0 +1,33 @@
+{
+  "name": "paseo-qoder",
+  "version": "1.0.0",
+  "lockfileVersion": 3,
+  "requires": true,
+  "packages": {
+    "": {
+      "name": "paseo-qoder",
+      "version": "1.0.0",
+      "dependencies": {
+        "@qoder-ai/qodercli": "0.2.14"
+      }
+    },
+    "node_modules/@qoder-ai/qodercli": {
+      "version": "0.2.14",
+      "resolved": "https://registry.npmjs.org/@qoder-ai/qodercli/-/qodercli-0.2.14.tgz",
+      "integrity": "sha512-K3vrinxakPv0W8w+KAV1khtlEDjCvjJ8VbAkvxa6L9yLwiljBB4IrG5d7Xs0uge1n/C061FgmCm50WVqh8QRwg==",
+      "hasInstallScript": true,
+      "license": "Apache-2.0",
+      "os": [
+        "darwin",
+        "linux",
+        "win32"
+      ],
+      "bin": {
+        "qodercli": "bundle/qodercli.js"
+      },
+      "engines": {
+        "node": ">=20.0.0"
+      }
+    }
+  }
+}

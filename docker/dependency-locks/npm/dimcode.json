@@ -1,0 +1,91 @@
+{
+  "name": "paseo-dimcode",
+  "version": "1.0.0",
+  "lockfileVersion": 3,
+  "requires": true,
+  "packages": {
+    "": {
+      "name": "paseo-dimcode",
+      "version": "1.0.0",
+      "dependencies": {
+        "dimcode": "0.5.21"
+      }
+    },
+    "node_modules/dimcode": {
+      "version": "0.5.21",
+      "resolved": "https://registry.npmjs.org/dimcode/-/dimcode-0.5.21.tgz",
+      "integrity": "sha512-wR+LxtPFTw0/9ctasT/5BcYJotXageS3C6s0CYChMTyI+ImoSUIKXJWT7zhd5WhBSlMfewIGg6e+MZ83A3SvhA==",
+      "bin": {
+        "dim": "bin/dim.mjs",
+        "dimcode": "bin/dim.mjs"
+      },
+      "optionalDependencies": {
+        "dimcode-darwin-arm64": "0.5.21",
+        "dimcode-darwin-x64": "0.5.21",
+        "dimcode-linux-arm64": "0.5.21",
+        "dimcode-linux-x64": "0.5.21",
+        "dimcode-windows-x64": "0.5.21"
+      }
+    },
+    "node_modules/dimcode-darwin-arm64": {
+      "version": "0.5.21",
+      "resolved": "https://registry.npmjs.org/dimcode-darwin-arm64/-/dimcode-darwin-arm64-0.5.21.tgz",
+      "integrity": "sha512-2bQYLjSlvBSbb1UT2E6ZWuTpnHywSC+ojLpQHwF9b/3GFUCpkp9L7e+j0QVtZUPIxMb+A1kFDnshEf0T9pxy4Q==",
+      "cpu": [
+        "arm64"
+      ],
+      "optional": true,
+      "os": [
+        "darwin"
+      ]
+    },
+    "node_modules/dimcode-darwin-x64": {
+      "version": "0.5.21",
+      "resolved": "https://registry.npmjs.org/dimcode-darwin-x64/-/dimcode-darwin-x64-0.5.21.tgz",
+      "integrity": "sha512-hK+hFLiY8BNpevmdwEBBSUloVhFJJtCg9+1KnWpl/Ish1LH4GIrwREdSc6nYb6HPIRS7zFhjjvC2ZFCQKQKl1g==",
+      "cpu": [
+        "x64"
+      ],
+      "optional": true,
+      "os": [
+        "darwin"
+      ]
+    },
+    "node_modules/dimcode-linux-arm64": {
+      "version": "0.5.21",
+      "resolved": "https://registry.npmjs.org/dimcode-linux-arm64/-/dimcode-linux-arm64-0.5.21.tgz",
+      "integrity": "sha512-WcRdwKxZ4MJuzg4MuaQNR1ylpHOdggkiKuYnTTRMVtHqd6Rk3KAfUO8XYtgoR2Q5vuQ3Uykwdv6UCLhbadarhA==",
+      "cpu": [
+        "arm64"
+      ],
+      "optional": true,
+      "os": [
+        "linux"
+      ]
+    },
+    "node_modules/dimcode-linux-x64": {
+      "version": "0.5.21",
+      "resolved": "https://registry.npmjs.org/dimcode-linux-x64/-/dimcode-linux-x64-0.5.21.tgz",
+      "integrity": "sha512-CPD0WWNIu9bAK1OQfP6Wt0sJeqjICYAD4i7s3qlyuV4gjCTsvqD5U8c6QLIoAltcofUncYNzOT284MszknGpew==",
+      "cpu": [
+        "x64"
+      ],
+      "optional": true,
+      "os": [
+        "linux"
+      ]
+    },
+    "node_modules/dimcode-windows-x64": {
+      "version": "0.5.21",
+      "resolved": "https://registry.npmjs.org/dimcode-windows-x64/-/dimcode-windows-x64-0.5.21.tgz",
+      "integrity": "sha512-ks1t99p8is4u97TMFUKxNopJgQ0m5r7wARSgtXT8XUdeTFcHxNxpW5scNYTKE6t9xj7qrNuw/FyTBYUTFdwseQ==",
+      "cpu": [
+        "x64"
+      ],
+      "optional": true,
+      "os": [
+        "win32"
+      ]
+    }
+  }
+}

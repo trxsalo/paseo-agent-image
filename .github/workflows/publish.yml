@@ -27,6 +27,12 @@ jobs:
       - name: Test Muse launcher staging
         run: python3 tests/test_muse_launcher_wrapper.py
 
+      - name: Test ACP installation and config handling
+        run: python3 -m unittest discover -s tests -p 'test_acp_installer.py'
+
+      - name: Test init security boundaries
+        run: sudo python3 -m unittest discover -s tests -p 'test_security_permissions.py'
+
       - name: Set up QEMU
         uses: docker/setup-qemu-action@99012661954931238ded8c8b007157a8430204e1 # v4.4.0
 
@@ -46,6 +52,6 @@ jobs:
           file: ./Dockerfile
           platforms: linux/amd64,linux/arm64
           push: true
-          tags: docker.io/trxsalo/paseo-agent-clis:2026-10-22-providers-gh
+          tags: docker.io/trxsalo/paseo-agent-clis:2026-10-22-providers-acp
           cache-from: type=gha
           cache-to: type=gha,mode=max

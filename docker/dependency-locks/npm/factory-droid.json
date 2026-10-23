@@ -1,0 +1,156 @@
+{
+  "name": "paseo-factory-droid",
+  "version": "1.0.0",
+  "lockfileVersion": 3,
+  "requires": true,
+  "packages": {
+    "": {
+      "name": "paseo-factory-droid",
+      "version": "1.0.0",
+      "dependencies": {
+        "droid": "0.247.0"
+      }
+    },
+    "node_modules/@factory/cli-darwin-arm64": {
+      "version": "0.247.0",
+      "resolved": "https://registry.npmjs.org/@factory/cli-darwin-arm64/-/cli-darwin-arm64-0.247.0.tgz",
+      "integrity": "sha512-+t12ZmQYVXOQEO8ZuN/HsalBYHUzkw6IJPbaLAuJVDavCK3CqKuBexJJB6QLr/SSWAOdBCzsap+TAdfDBW6r+w==",
+      "cpu": [
+        "arm64"
+      ],
+      "license": "UNLICENSED",
+      "optional": true,
+      "os": [
+        "darwin"
+      ]
+    },
+    "node_modules/@factory/cli-darwin-x64": {
+      "version": "0.247.0",
+      "resolved": "https://registry.npmjs.org/@factory/cli-darwin-x64/-/cli-darwin-x64-0.247.0.tgz",
+      "integrity": "sha512-pvxpy7elg40i4gcu2v8Yb+h8JOd+ZwQHhTGuxMQCkOUXmRpVLX0bgeJhkinxbbl+WgBaNyh17wEB5ovmsgkEtA==",
+      "cpu": [
+        "x64"
+      ],
+      "license": "UNLICENSED",
+      "optional": true,
+      "os": [
+        "darwin"
+      ]
+    },
+    "node_modules/@factory/cli-darwin-x64-baseline": {
+      "version": "0.247.0",
+      "resolved": "https://registry.npmjs.org/@factory/cli-darwin-x64-baseline/-/cli-darwin-x64-baseline-0.247.0.tgz",
+      "integrity": "sha512-mzG2b3TcQ/mKsoBpGJCrM8Y/c+tSwV/CGyhIq1tkVb+f1UAOxsfP0xOqIzclC9bxhsznzSJsVOQhLJCsyIvghQ==",
+      "cpu": [
+        "x64"
+      ],
+      "license": "UNLICENSED",
+      "optional": true,
+      "os": [
+        "darwin"
+      ]
+    },
+    "node_modules/@factory/cli-linux-arm64": {
+      "version": "0.247.0",
+      "resolved": "https://registry.npmjs.org/@factory/cli-linux-arm64/-/cli-linux-arm64-0.247.0.tgz",
+      "integrity": "sha512-8fA9XZ8lvmwGpi8/yNnQC3iQyhC5jlazJ52cKJh6/E5WdZLJKKTyc2IKyGytDwn5yYy56MAY2YipVwmePZTABg==",
+      "cpu": [
+        "arm64"
+      ],
+      "license": "UNLICENSED",
+      "optional": true,
+      "os": [
+        "linux"
+      ]
+    },
+    "node_modules/@factory/cli-linux-x64": {
+      "version": "0.247.0",
+      "resolved": "https://registry.npmjs.org/@factory/cli-linux-x64/-/cli-linux-x64-0.247.0.tgz",
+      "integrity": "sha512-EfewwgN+GCuyv1ZrkEDnB+ejMNIvCa6+3N7LuE3+h3FAN2UN8c1moCxJZzlmZxpBXQcGEp27z5pF6c9wwnepWQ==",
+      "cpu": [
+        "x64"
+      ],
+      "license": "UNLICENSED",
+      "optional": true,
+      "os": [
+        "linux"
+      ]
+    },
+    "node_modules/@factory/cli-linux-x64-baseline": {
+      "version": "0.247.0",
+      "resolved": "https://registry.npmjs.org/@factory/cli-linux-x64-baseline/-/cli-linux-x64-baseline-0.247.0.tgz",
+      "integrity": "sha512-PZ8wXN8KRghGprbLYcDo+HL4CyHB42Nufq0HvLOmYAt3GYwn+NZFAyrGrRTTYD2U9D0pcmmAC74IEqilY0+vxw==",
+      "cpu": [
+        "x64"
+      ],
+      "license": "UNLICENSED",
+      "optional": true,
+      "os": [
+        "linux"
+      ]
+    },
+    "node_modules/@factory/cli-win32-arm64": {
+      "version": "0.247.0",
+      "resolved": "https://registry.npmjs.org/@factory/cli-win32-arm64/-/cli-win32-arm64-0.247.0.tgz",
+      "integrity": "sha512-FNKBAlKVWRqqWiCLZ7o2VX4e521BaBT6bZb57ugMddSSDSZOrBpbwoq7bcC2xUYDw35kd9NqhLD7hd9tUnEdTA==",
+      "cpu": [
+        "arm64"
+      ],
+      "license": "UNLICENSED",
+      "optional": true,
+      "os": [
+        "win32"
+      ]
+    },
+    "node_modules/@factory/cli-win32-x64": {
+      "version": "0.247.0",
+      "resolved": "https://registry.npmjs.org/@factory/cli-win32-x64/-/cli-win32-x64-0.247.0.tgz",
+      "integrity": "sha512-8+XOj/W8t75a3caOIQS8y/e+HpWB+Z3GT7xrMFObYYOneVPhGa4tvSZEA8GpGY/C+O6GmP2Yfhmrr/CUjaYH4w==",
+      "cpu": [
+        "x64"
+      ],
+      "license": "UNLICENSED",
+      "optional": true,
+      "os": [
+        "win32"
+      ]
+    },
+    "node_modules/@factory/cli-win32-x64-baseline": {
+      "version": "0.247.0",
+      "resolved": "https://registry.npmjs.org/@factory/cli-win32-x64-baseline/-/cli-win32-x64-baseline-0.247.0.tgz",
+      "integrity": "sha512-kzkT/bymTIQKQjMfkHFRwSPAgp5CTv49JDUgkKeS+YOmbN1aPw4F4ZILyV2Puelj+5pmjJ63dq0Vu+8t68jzbg==",
+      "cpu": [
+        "x64"
+      ],
+      "license": "UNLICENSED",
+      "optional": true,
+      "os": [
+        "win32"
+      ]
+    },
+    "node_modules/droid": {
+      "version": "0.247.0",
+      "resolved": "https://registry.npmjs.org/droid/-/droid-0.247.0.tgz",
+      "integrity": "sha512-Q9P7kRYrRxqEaXZ82UuItaH+fkkrmRSuN15SKmfMO93HAKU+3ln6u/TkVcfVZwGRSn3IcwDua1Jdba1zYv4KlA==",
+      "hasInstallScript": true,
+      "license": "UNLICENSED",
+      "bin": {
+        "droid": "bin/droid"
+      },
+      "engines": {
+        "node": ">=20.0.0"
+      },
+      "optionalDependencies": {
+        "@factory/cli-darwin-arm64": "0.247.0",
+        "@factory/cli-darwin-x64": "0.247.0",
+        "@factory/cli-darwin-x64-baseline": "0.247.0",
+        "@factory/cli-linux-arm64": "0.247.0",
+        "@factory/cli-linux-x64": "0.247.0",
+        "@factory/cli-linux-x64-baseline": "0.247.0",
+        "@factory/cli-win32-arm64": "0.247.0",
+        "@factory/cli-win32-x64": "0.247.0",
+        "@factory/cli-win32-x64-baseline": "0.247.0"
+      }
+    }
+  }
+}

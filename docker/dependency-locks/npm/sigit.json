@@ -1,0 +1,110 @@
+{
+  "name": "paseo-sigit",
+  "version": "1.0.0",
+  "lockfileVersion": 3,
+  "requires": true,
+  "packages": {
+    "": {
+      "name": "paseo-sigit",
+      "version": "1.0.0",
+      "dependencies": {
+        "@smbcloud/sigit": "1.7.4"
+      }
+    },
+    "node_modules/@smbcloud/sigit": {
+      "version": "1.7.4",
+      "resolved": "https://registry.npmjs.org/@smbcloud/sigit/-/sigit-1.7.4.tgz",
+      "integrity": "sha512-RG48N7YyvHdqZkQSw6FQW+4wJvczhVEO8/gVpXDiB1kzssKWWpSYb61n7fPoiJFc+GVRB2KTaQ7l33zjMlW/7Q==",
+      "license": "Apache-2.0",
+      "bin": {
+        "sigit": "lib/index.js"
+      },
+      "optionalDependencies": {
+        "@smbcloud/sigit-darwin-arm64": "1.7.4",
+        "@smbcloud/sigit-darwin-x64": "1.7.4",
+        "@smbcloud/sigit-linux-arm64": "1.7.4",
+        "@smbcloud/sigit-linux-x64": "1.7.4",
+        "@smbcloud/sigit-windows-arm64": "1.7.4",
+        "@smbcloud/sigit-windows-x64": "1.7.4"
+      }
+    },
+    "node_modules/@smbcloud/sigit-darwin-arm64": {
+      "version": "1.7.4",
+      "resolved": "https://registry.npmjs.org/@smbcloud/sigit-darwin-arm64/-/sigit-darwin-arm64-1.7.4.tgz",
+      "integrity": "sha512-EFF38S11B409hUmQCIGTbdqnkv1j4UnKEtiSgHkK6jWZV2k51vBu53hpruCkBYYssKKhU4CNN1iGyp4Ab8W5Mw==",
+      "cpu": [
+        "arm64"
+      ],
+      "license": "Apache-2.0",
+      "optional": true,
+      "os": [
+        "darwin"
+      ]
+    },
+    "node_modules/@smbcloud/sigit-darwin-x64": {
+      "version": "1.7.4",
+      "resolved": "https://registry.npmjs.org/@smbcloud/sigit-darwin-x64/-/sigit-darwin-x64-1.7.4.tgz",
+      "integrity": "sha512-Q5e7fa7xatpX8tePKBaUD/nBj3J/faBjnNdgFJBopAcfF9r81ItxkA7FEt1orfZoM65v0fSjhgcOW8LcI2S9MA==",
+      "cpu": [
+        "x64"
+      ],
+      "license": "Apache-2.0",
+      "optional": true,
+      "os": [
+        "darwin"
+      ]
+    },
+    "node_modules/@smbcloud/sigit-linux-arm64": {
+      "version": "1.7.4",
+      "resolved": "https://registry.npmjs.org/@smbcloud/sigit-linux-arm64/-/sigit-linux-arm64-1.7.4.tgz",
+      "integrity": "sha512-9JGXfWGWzd1YGkqYbv6FTBcwBg8hrytEY121Nh4QJEO3CLLFPMoKB1PARnOdN1Sor7PDF48BM3NMClfo5A94gQ==",
+      "cpu": [
+        "arm64"
+      ],
+      "license": "Apache-2.0",
+      "optional": true,
+      "os": [
+        "linux"
+      ]
+    },
+    "node_modules/@smbcloud/sigit-linux-x64": {
+      "version": "1.7.4",
+      "resolved": "https://registry.npmjs.org/@smbcloud/sigit-linux-x64/-/sigit-linux-x64-1.7.4.tgz",
+      "integrity": "sha512-R6kGqR/YDTpbc7emxq+sXulTQG7NPo+pHGYoTtGsjDB034AzZq6BojiC18wI3HieutAYy1+XW6lMppI1pSaD+g==",
+      "cpu": [
+        "x64"
+      ],
+      "license": "Apache-2.0",
+      "optional": true,
+      "os": [
+        "linux"
+      ]
+    },
+    "node_modules/@smbcloud/sigit-windows-arm64": {
+      "version": "1.7.4",
+      "resolved": "https://registry.npmjs.org/@smbcloud/sigit-windows-arm64/-/sigit-windows-arm64-1.7.4.tgz",
+      "integrity": "sha512-BcsS9o2iSFd+vFhTxyRViTCIrQLBhBd+1L/sJKmfjUZFaEuL87aBC+1euDkmYbz5AOIDFMRyRa9jabk8/q0sDw==",
+      "cpu": [
+        "arm64"
+      ],
+      "license": "Apache-2.0",
+      "optional": true,
+      "os": [
+        "win32"
+      ]
+    },
+    "node_modules/@smbcloud/sigit-windows-x64": {
+      "version": "1.7.4",
+      "resolved": "https://registry.npmjs.org/@smbcloud/sigit-windows-x64/-/sigit-windows-x64-1.7.4.tgz",
+      "integrity": "sha512-7oOVW9slgcGBWWttOEP+i0jj0pGzdTt2HdNy3XtNjBBAke1X1s50ZVpgM8ukuKN6VONgqfFwkPkaTEkCxzyn5Q==",
+      "cpu": [
+        "x64"
+      ],
+      "license": "Apache-2.0",
+      "optional": true,
+      "os": [
+        "win32"
+      ]
+    }
+  }
+}

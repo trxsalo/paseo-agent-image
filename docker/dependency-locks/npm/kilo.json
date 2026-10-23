@@ -1,0 +1,214 @@
+{
+  "name": "paseo-kilo",
+  "version": "1.0.0",
+  "lockfileVersion": 3,
+  "requires": true,
+  "packages": {
+    "": {
+      "name": "paseo-kilo",
+      "version": "1.0.0",
+      "dependencies": {
+        "@kilocode/cli": "7.8.15"
+      }
+    },
+    "node_modules/@kilocode/cli": {
+      "version": "7.8.15",
+      "resolved": "https://registry.npmjs.org/@kilocode/cli/-/cli-7.8.15.tgz",
+      "integrity": "sha512-vLfP64MSNZkIDrTPY/2GZwWiNnkM0/nDN+mNO6TamAYaGpjnDe2uRnDCdIo4PV/RAO1aevPeBY8vfaaZ0BUdbA==",
+      "cpu": [
+        "arm64",
+        "x64"
+      ],
+      "hasInstallScript": true,
+      "license": "MIT",
+      "os": [
+        "darwin",
+        "linux",
+        "win32"
+      ],
+      "bin": {
+        "kilo": "bin/kilo",
+        "kilocode": "bin/kilo"
+      },
+      "optionalDependencies": {
+        "@kilocode/cli-darwin-arm64": "7.8.15",
+        "@kilocode/cli-darwin-x64": "7.8.15",
+        "@kilocode/cli-darwin-x64-baseline": "7.8.15",
+        "@kilocode/cli-linux-arm64": "7.8.15",
+        "@kilocode/cli-linux-arm64-musl": "7.8.15",
+        "@kilocode/cli-linux-x64": "7.8.15",
+        "@kilocode/cli-linux-x64-baseline": "7.8.15",
+        "@kilocode/cli-linux-x64-baseline-musl": "7.8.15",
+        "@kilocode/cli-linux-x64-musl": "7.8.15",
+        "@kilocode/cli-windows-arm64": "7.8.15",
+        "@kilocode/cli-windows-x64": "7.8.15",
+        "@kilocode/cli-windows-x64-baseline": "7.8.15"
+      }
+    },
+    "node_modules/@kilocode/cli-darwin-arm64": {
+      "version": "7.8.15",
+      "resolved": "https://registry.npmjs.org/@kilocode/cli-darwin-arm64/-/cli-darwin-arm64-7.8.15.tgz",
+      "integrity": "sha512-zl4g9gE1mlkVCQ0x3A0psMrHje1nc4dVgLDJ4AILIkCSSEdE32PNdhvrgZPrAMyKVrU/5LRvReda5A/WyKVgEQ==",
+      "cpu": [
+        "arm64"
+      ],
+      "license": "MIT",
+      "optional": true,
+      "os": [
+        "darwin"
+      ]
+    },
+    "node_modules/@kilocode/cli-darwin-x64": {
+      "version": "7.8.15",
+      "resolved": "https://registry.npmjs.org/@kilocode/cli-darwin-x64/-/cli-darwin-x64-7.8.15.tgz",
+      "integrity": "sha512-v5M4vM15s1Aw2UGgj3AWXvZgxF/N7Oo54dy013dSv6m1SoSuGlSoR0F+zuigMz0XEDydbJMYT8kBoYBQTBZz1Q==",
+      "cpu": [
+        "x64"
+      ],
+      "license": "MIT",
+      "optional": true,
+      "os": [
+        "darwin"
+      ]
+    },
+    "node_modules/@kilocode/cli-darwin-x64-baseline": {
+      "version": "7.8.15",
+      "resolved": "https://registry.npmjs.org/@kilocode/cli-darwin-x64-baseline/-/cli-darwin-x64-baseline-7.8.15.tgz",
+      "integrity": "sha512-YmW8BvCaXx4Z0BP+jeiShoSOG83u6PJcyhmeA1KGriLKvTEclqFnameLHvcmqV/ARyFR/JpL6oKDcnRF5RN4KA==",
+      "cpu": [
+        "x64"
+      ],
+      "license": "MIT",
+      "optional": true,
+      "os": [
+        "darwin"
+      ]
+    },
+    "node_modules/@kilocode/cli-linux-arm64": {
+      "version": "7.8.15",
+      "resolved": "https://registry.npmjs.org/@kilocode/cli-linux-arm64/-/cli-linux-arm64-7.8.15.tgz",
+      "integrity": "sha512-chD53TdZc1S5WVxiU3/k63YWzA/hczi4QFUQUwEuxCd49A7UWpslH8EXyGcbOI65BNRmN3EbFcnvOP1o3qHEgw==",
+      "cpu": [
+        "arm64"
+      ],
+      "license": "SEE LICENSE IN LICENSE",
+      "optional": true,
+      "os": [
+        "linux"
+      ]
+    },
+    "node_modules/@kilocode/cli-linux-arm64-musl": {
+      "version": "7.8.15",
+      "resolved": "https://registry.npmjs.org/@kilocode/cli-linux-arm64-musl/-/cli-linux-arm64-musl-7.8.15.tgz",
+      "integrity": "sha512-OYDyZoQpbL217VESTlQnS8lFz42Jcz3LhH+yo8Jm9Hu2CoGy5+wzeKBpgxnn2tA2R3+GxLgavH10DuIbqnW6+w==",
+      "cpu": [
+        "arm64"
+      ],
+      "libc": [
+        "musl"
+      ],
+      "license": "SEE LICENSE IN LICENSE",
+      "optional": true,
+      "os": [
+        "linux"
+      ]
+    },
+    "node_modules/@kilocode/cli-linux-x64": {
+      "version": "7.8.15",
+      "resolved": "https://registry.npmjs.org/@kilocode/cli-linux-x64/-/cli-linux-x64-7.8.15.tgz",
+      "integrity": "sha512-QrfkARR3n2yptAveOC3r91NnMJXhMlTmlpZBd66R2VmcajK6jGFwJyfXyHC1HtehwI/OEwCd7Omo2aF24CgoZQ==",
+      "cpu": [
+        "x64"
+      ],
+      "license": "SEE LICENSE IN LICENSE",
+      "optional": true,
+      "os": [
+        "linux"
+      ]
+    },
+    "node_modules/@kilocode/cli-linux-x64-baseline": {
+      "version": "7.8.15",
+      "resolved": "https://registry.npmjs.org/@kilocode/cli-linux-x64-baseline/-/cli-linux-x64-baseline-7.8.15.tgz",
+      "integrity": "sha512-WP6GuHkcGLL6A69HnAj/gjWIYkJXHXjQndxKUUOJZJ6xSYAwnkxQ1q46D9b0xuZMhJUwX4IubZE5KuBrxdSmSA==",
+      "cpu": [
+        "x64"
+      ],
+      "license": "SEE LICENSE IN LICENSE",
+      "optional": true,
+      "os": [
+        "linux"
+      ]
+    },
+    "node_modules/@kilocode/cli-linux-x64-baseline-musl": {
+      "version": "7.8.15",
+      "resolved": "https://registry.npmjs.org/@kilocode/cli-linux-x64-baseline-musl/-/cli-linux-x64-baseline-musl-7.8.15.tgz",
+      "integrity": "sha512-iS17OmawCrCkRio6g8FeX4IkbJ7VIFTbBycXK6IlCGjrZ/n6e7O06oOwk7AFFoBIq8MKgvsfbA/2jHvKzhgw3A==",
+      "cpu": [
+        "x64"
+      ],
+      "libc": [
+        "musl"
+      ],
+      "license": "SEE LICENSE IN LICENSE",
+      "optional": true,
+      "os": [
+        "linux"
+      ]
+    },
+    "node_modules/@kilocode/cli-linux-x64-musl": {
+      "version": "7.8.15",
+      "resolved": "https://registry.npmjs.org/@kilocode/cli-linux-x64-musl/-/cli-linux-x64-musl-7.8.15.tgz",
+      "integrity": "sha512-cAtIRBTEGzaL4Z9eg08IfXfK6Cu6/O7n9XpOWvcr7h5fN+J/kB3NGsT0mz6E2DqR8GmsK3XPeWZzNwDrmhMJ1A==",
+      "cpu": [
+        "x64"
+      ],
+      "libc": [
+        "musl"
+      ],
+      "license": "SEE LICENSE IN LICENSE",
+      "optional": true,
+      "os": [
+        "linux"
+      ]
+    },
+    "node_modules/@kilocode/cli-windows-arm64": {
+      "version": "7.8.15",
+      "resolved": "https://registry.npmjs.org/@kilocode/cli-windows-arm64/-/cli-windows-arm64-7.8.15.tgz",
+      "integrity": "sha512-PXK3S2Z3R5lSWlRfvox9VCdvNcFpS61kgkVxsZR5k3VEwS9ktW0uSqyZv5KlJdLNDJGbv02nbVGCEmmYX2xlGg==",
+      "cpu": [
+        "arm64"
+      ],
+      "license": "MIT",
+      "optional": true,
+      "os": [
+        "win32"
+      ]
+    },
+    "node_modules/@kilocode/cli-windows-x64": {
+      "version": "7.8.15",
+      "resolved": "https://registry.npmjs.org/@kilocode/cli-windows-x64/-/cli-windows-x64-7.8.15.tgz",
+      "integrity": "sha512-oWGcdbfaI8x/Jb34TE7e21TOiqO3M+K105QukEj9kKMOzv7s0QqlTxBmOavxW3n4BnnKwjEJkZ3ifY/J632ZmQ==",
+      "cpu": [
+        "x64"
+      ],
+      "license": "MIT",
+      "optional": true,
+      "os": [
+        "win32"
+      ]
+    },
+    "node_modules/@kilocode/cli-windows-x64-baseline": {
+      "version": "7.8.15",
+      "resolved": "https://registry.npmjs.org/@kilocode/cli-windows-x64-baseline/-/cli-windows-x64-baseline-7.8.15.tgz",
+      "integrity": "sha512-H2+usWq4EvS963NIfpc3l0JD78CoTXFooIVoNsk86lBizHmgCHCIJo+gYbRXeH+lEt8zedlffjuQ3jDrdntv5A==",
+      "cpu": [
+        "x64"
+      ],
+      "license": "MIT",
+      "optional": true,
+      "os": [
+        "win32"
+      ]
+    }
+  }
+}

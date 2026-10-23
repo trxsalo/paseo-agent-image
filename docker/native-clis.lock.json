@@ -1,0 +1,54 @@
+{
+  "packages": [
+    {
+      "id": "native-codex",
+      "package": "@openai/codex@0.163.0",
+      "bin": "codex",
+      "integrity": "sha512-HNd7vR9oTK6M2ikxFnvNDCdYUgAsyo9VVnd5KnEd2ON0GYI++7MiX9XNPUkhtdgGKFPsWS+CEppQ1UU63uVhUw==",
+      "lock": {
+        "path": "npm/native-codex.json",
+        "sha256": "031d96171d28575550a3fa6b19d956891b283967839ace90461963746d4f4d12"
+      }
+    },
+    {
+      "id": "native-claude",
+      "package": "@anthropic-ai/claude-code@2.1.306",
+      "bin": "claude",
+      "integrity": "sha512-7biQtEqwnigGbezCgmpkGfcleiRddNy7Z9FXLCxmaizBnC11Qk9dxnr6mPBMX5eTRbnoMGHHIsL5M5el1vWhlw==",
+      "lock": {
+        "path": "npm/native-claude.json",
+        "sha256": "a3b1d1cddf171672e39c343388f85c9a6f4bd3e8a627f3a0acb165a907fb8558"
+      }
+    },
+    {
+      "id": "native-copilot",
+      "package": "@github/copilot@1.0.102",
+      "bin": "copilot",
+      "integrity": "sha512-mv6cTWMhMILxg5ZDgqJ6UsnpPuySCPWOPbZVaO8lL0dpmjY3VD9ZhJr6DFcG7fhUXZv6OmvLdcRCa5MJ6hBI+Q==",
+      "lock": {
+        "path": "npm/native-copilot.json",
+        "sha256": "51745b802176c691e016846c84397d8471237bcf16af7cfc0d5c80b734134bbe"
+      }
+    },
+    {
+      "id": "native-opencode",
+      "package": "@opencode/cli@2.1.2",
+      "bin": "opencode",
+      "integrity": "sha512-9mBVQTO3WkKzP300NtHuhmXkHTfR2JwFB0AKRGRw4Lt3SNEwo5V4pzXXrwlpRAHoQmINLPuFPGOmn1kxYZdmMQ==",
+      "lock": {
+        "path": "npm/native-opencode.json",
+        "sha256": "c89378fe0672400f9b73be4a76cae497fdf6f0dc4d9b49196e888c95ea9a4f61"
+      }
+    },
+    {
+      "id": "native-pi",
+      "package": "@earendil-works/pi-coding-agent@1.4.0",
+      "bin": "pi",
+      "integrity": "sha512-Z41LpZ3yYHSC/UUps6Mr39UMFPwH8elhJBG9DY1P7kuzsE5qSK/6eMj2EHzO5evJRQWLbKSqUMw+4nCNtIyiQg==",
+      "lock": {
+        "path": "npm/native-pi.json",
+        "sha256": "e6f6cb227299da3eaad7245f30bc87af1b65997f5f48b5fc7a0a927de0ef209c"
+      }
+    }
+  ]
+}

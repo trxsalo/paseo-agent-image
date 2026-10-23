@@ -23,4 +23,5 @@ test -x "$(command -v agy)"
 test -x "$(command -v muse)"
 sh -n "$(command -v muse)"
 bash -n /usr/local/share/paseo-muse-launcher.sh
+paseo-acp check
 printf 'provider_cli_smoke=passed\n'

@@ -1,37 +1,19 @@
 #!/bin/sh
 set -eu
 
-home=/home/paseo
-codex_home=${CODEX_HOME:-$home/.codex}
-claude_config_dir=${CLAUDE_CONFIG_DIR:-$home/.claude}
-
-warn() {
-  printf 'paseo-agent-config-permissions: warning: %s\n' "$*" >&2
-}
-
-# All supported provider CLIs store auth/state below the persistent home. Repair
-# only mismatched owners, without following symlinks or crossing mount points.
-if [ "$(id -u)" -eq 0 ] && [ -d "$home" ] && [ ! -L "$home" ]; then
-  chown 1000:1000 -- "$home" || warn "could not set owner 1000:1000 on $home"
-  if ! find "$home" -xdev -mindepth 1 ! -type l \
-    \( ! -uid 1000 -o ! -gid 1000 \) \
-    -exec chown 1000:1000 {} +; then
-    warn "could not repair every mismatched owner under $home"
-  fi
+# The pinned base otherwise only warns and accepts unauthenticated control.
+if [ "$#" -eq 0 ] && [ -z "${PASEO_PASSWORD:-}" ]; then
+  printf '%s\n' 'paseo-init: PASEO_PASSWORD is required to start the daemon.' >&2
+  exit 1
 fi
 
-# Keep Codex's private files locked down; Claude's configuration is private too.
-for dir in "$codex_home" "$codex_home/tmp" "$claude_config_dir"; do
-  if [ -d "$dir" ] && [ ! -L "$dir" ]; then
-    chmod 700 -- "$dir" || warn "could not set mode 700 on $dir"
-  fi
-done
+home=/home/paseo
+# Repair verified descriptors; do not fall back to pathname-based chown/chmod.
+/usr/bin/python3 -I -S /usr/local/libexec/paseo-repair-permissions.py "$home"
 
-for file in "$codex_home/config.toml" "$home/.claude.json"; do
-  if [ -f "$file" ] && [ ! -L "$file" ]; then
-    chmod 600 -- "$file" || warn "could not set mode 600 on $file"
-  fi
-done
-
-# Preserve the pinned base image's init/signal handling and privilege drop.
+# Run upstream ensure_dir logic without root privileges too. Its pathname-based
+# mkdir/stat/chown must never undo the descriptor-based repair's link protections.
+if [ "$(/usr/bin/id -u)" -eq 0 ]; then
+  exec /usr/bin/tini -- /usr/sbin/gosu paseo /usr/local/bin/paseo-docker-entrypoint "$@"
+fi
 exec /usr/bin/tini -- /usr/local/bin/paseo-docker-entrypoint "$@"

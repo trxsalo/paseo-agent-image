@@ -1,0 +1,1005 @@
+{
+  "schemaVersion": 1,
+  "paseoCommit": "d972f67c3fea06fbc163608f5ddcc2c443de83ac",
+  "registryUrl": "https://cdn.agentclientprotocol.com/registry/v1/latest/registry.json",
+  "registrySha256": "9e6bf0bf279c70aeb361916356a127678065e302d339c63e2be01e43afa44d21",
+  "agents": [
+    {
+      "id": "agoragentic-acp",
+      "label": "Agoragentic",
+      "version": "1.3.0",
+      "documentation": "https://agoragentic.com",
+      "env": {},
+      "options": {},
+      "distribution": {
+        "npx": {
+          "package": "agoragentic-mcp@1.3.0",
+          "args": [
+            "--acp"
+          ],
+          "bin": "agoragentic-mcp",
+          "integrity": "sha512-r5LHLPJj6DfIHZHLBF7I86iVjJ95SXHb70H+r1zUIqAvN3ttIr8N5I9NGNgbwr92ur6EO7uYtOhxrUz3AefRFA==",
+          "lock": {
+            "path": "npm/agoragentic-acp.json",
+            "sha256": "107ac1b3b93b89bdb88dadbac8f18195f0e7711b553ce33389b258f94a29f083"
+          }
+        }
+      }
+    },
+    {
+      "id": "amp-acp",
+      "label": "Amp",
+      "version": "0.10.0",
+      "documentation": "https://github.com/tao12345666333/amp-acp",
+      "env": {},
+      "options": {},
+      "distribution": {
+        "binary": {
+          "linux-aarch64": {
+            "archive": "https://github.com/tao12345666333/amp-acp/releases/download/v0.10.0/amp-acp-linux-aarch64.tar.gz",
+            "cmd": "./amp-acp",
+            "sha256": "523e03dbf013dd9281aa8aa296691e472d039ed7f47c464ebdc4a6f0a0567ef1"
+          },
+          "linux-x86_64": {
+            "archive": "https://github.com/tao12345666333/amp-acp/releases/download/v0.10.0/amp-acp-linux-x86_64.tar.gz",
+            "cmd": "./amp-acp",
+            "sha256": "320959bb1de650681413a3fc72febd62fded65c734b9ab3399855e007fcdd1ba"
+          }
+        }
+      },
+      "npmPrerequisites": [
+        {
+          "package": "@ampcode/cli@0.0.1792684837-g5097b1",
+          "bin": "amp",
+          "integrity": "sha512-C8i2gwyhsKM4Ez2Q/sF5hDAB/qR0R54Rx7K2W1OGwWqUgaDq9XzQSxQf/gQtfpSuasm/U+aPTJAtIvdoFzmPVA==",
+          "lock": {
+            "path": "npm/amp-acp-runtime-0.json",
+            "sha256": "42f226aeb83fac6fa61f26ad5dc600ef1c3aad083b6421e76164ae183ec22aa3"
+          }
+        }
+      ]
+    },
+    {
+      "id": "auggie",
+      "label": "Auggie CLI",
+      "version": "0.36.0",
+      "documentation": "https://www.augmentcode.com/",
+      "env": {
+        "AUGMENT_DISABLE_AUTO_UPDATE": "1"
+      },
+      "options": {},
+      "distribution": {
+        "npx": {
+          "package": "@augmentcode/auggie@0.36.0",
+          "args": [
+            "--acp"
+          ],
+          "env": {
+            "AUGMENT_DISABLE_AUTO_UPDATE": "1"
+          },
+          "bin": "auggie",
+          "integrity": "sha512-jb4kq97pGzG0i5UyISc//LjTVlFzIywwD+VfPemiSIl58KjLfxry3KDgxWYnr1vmV8yUkySVzjLnj4ewUEbT/Q==",
+          "lock": {
+            "path": "npm/auggie.json",
+            "sha256": "7dc843922a9451e7e0bce53f983ad811a02dfa94f90dfceddfab22ff44788129"
+          }
+        }
+      }
+    },
+    {
+      "id": "autohand",
+      "label": "Autohand Code",
+      "version": "0.9.8",
+      "documentation": "https://www.autohand.ai/cli/",
+      "env": {},
+      "options": {},
+      "distribution": {
+        "binary": {
+          "linux-x86_64": {
+            "archive": "https://github.com/autohandai/code-cli/releases/download/v0.9.8/autohand-linux-x64",
+            "raw": true,
+            "cmd": "./autohand",
+            "args": [
+              "--acp"
+            ],
+            "sha256": "e58b4ef9076d960e56cbfc37267f0c0ecba14881ccdf9ff8ecc3360101bcb00d"
+          },
+          "linux-aarch64": {
+            "archive": "https://github.com/autohandai/code-cli/releases/download/v0.9.8/autohand-linux-arm64",
+            "raw": true,
+            "cmd": "./autohand",
+            "args": [
+              "--acp"
+            ],
+            "sha256": "d27bddb9729a2cd34cb9130bb8291d2a45ffa52472b6abf06782ca6c5ce63cf4"
+          }
+        }
+      }
+    },
+    {
+      "id": "cline",
+      "label": "Cline",
+      "version": "3.0.73",
+      "documentation": "https://cline.bot/cli",
+      "env": {},
+      "options": {},
+      "distribution": {
+        "npx": {
+          "package": "cline@3.0.73",
+          "args": [
+            "--acp"
+          ],
+          "bin": "cline",
+          "integrity": "sha512-4lx7qC8X2neX7k3RIshwkFw0zuzSFQ7Tua+8v/6MgLDcAI/hjUWiR7GVUmbyFtH1oOazaoAD/xR1GQeX1f2NNQ==",
+          "lock": {
+            "path": "npm/cline.json",
+            "sha256": "a5e2bcd0e65531d37155e335e0dec843b6e2846350b49c6cb9e86b2c431e3a66"
+          }
+        }
+      }
+    },
+    {
+      "id": "codebuddy-code",
+      "label": "Codebuddy Code",
+      "version": "2.172.1",
+      "documentation": "https://www.codebuddy.cn/cli/",
+      "env": {},
+      "options": {},
+      "distribution": {
+        "npx": {
+          "package": "@tencent-ai/codebuddy-code@2.172.1",
+          "args": [
+            "--acp"
+          ],
+          "bin": "codebuddy-code",
+          "integrity": "sha512-W0EMBNpkCNgwXLOydyYSfmQnRSBp15Mjhi9SqBGdO+SzawpKMgi5jSwlpP9hFbSMJPSLoGXOw3/bh+urv5yRiw==",
+          "lock": {
+            "path": "npm/codebuddy-code.json",
+            "sha256": "11fd0010418f05cb370e2250f2307723cbeff67fe3aeef1214e59990f042f548"
+          }
+        }
+      }
+    },
+    {
+      "id": "codewhale",
+      "label": "CodeWhale",
+      "version": "0.10.1",
+      "documentation": "https://codewhale.net/",
+      "env": {},
+      "options": {},
+      "distribution": {
+        "npx": {
+          "package": "codewhale@0.10.1",
+          "args": [
+            "serve",
+            "--acp"
+          ],
+          "bin": "codewhale",
+          "integrity": "sha512-Jx/mSgDj0UBjgcLbIWbT2+P+Y+KJGe35I3m2lquVfjGlY+6vLjUWBeXetrxfjoRpCo2hhb4J9RDWCo18Sjh98Q==",
+          "lock": {
+            "path": "npm/codewhale.json",
+            "sha256": "a974ec59f04e7246d17f0ab8a88931fbf5f58a61853e978c53bd86e3bb06ff5e"
+          }
+        }
+      }
+    },
+    {
+      "id": "cortex-code",
+      "label": "Cortex Code",
+      "version": "1.0.73",
+      "documentation": "https://docs.snowflake.com/en/user-guide/cortex-code/cortex-code-cli",
+      "env": {},
+      "options": {},
+      "distribution": {
+        "binary": {
+          "linux-x86_64": {
+            "archive": "https://sfc-repo.snowflakecomputing.com/cortex-code-cli/a4643c4278/1.0.73%2B180523.e6179a031de9/coco-1.0.73%2B180523.e6179a031de9-linux-amd64.tar.gz",
+            "cmd": "./coco-1.0.73+180523.e6179a031de9-linux-amd64/cortex",
+            "args": [
+              "acp",
+              "serve"
+            ]
+          },
+          "linux-aarch64": {
+            "archive": "https://sfc-repo.snowflakecomputing.com/cortex-code-cli/a4643c4278/1.0.73%2B180523.e6179a031de9/coco-1.0.73%2B180523.e6179a031de9-linux-arm64.tar.gz",
+            "cmd": "./coco-1.0.73+180523.e6179a031de9-linux-arm64/cortex",
+            "args": [
+              "acp",
+              "serve"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "id": "corust-agent",
+      "label": "Corust Agent",
+      "version": "0.6.0",
+      "documentation": "https://github.com/Corust-ai/corust-agent-release/releases",
+      "env": {},
+      "options": {},
+      "distribution": {
+        "binary": {
+          "linux-x86_64": {
+            "archive": "https://github.com/Corust-ai/corust-agent-release/releases/download/v0.6.0/agent-linux-x64.tar.gz",
+            "cmd": "./corust-agent-acp",
+            "sha256": "2a2e42572b317c83d38f3c373ef5f417e83b0ccabf2fb43ff2aa038ab9f73ba2"
+          }
+        }
+      }
+    },
+    {
+      "id": "crow-cli",
+      "label": "crow-cli",
+      "version": "0.1.24",
+      "documentation": "https://crow-ai.dev/",
+      "env": {},
+      "options": {},
+      "distribution": {
+        "binary": {
+          "linux-aarch64": {
+            "archive": "https://github.com/crow-cli/crow-cli/releases/download/v0.1.24/crow-cli-linux-aarch64.tar.gz",
+            "cmd": "./crow-cli",
+            "args": [
+              "acp"
+            ],
+            "sha256": "5a81df3075694d8fe96692a56d90868721da4f2ce93afff2ee550c570c3b6748"
+          },
+          "linux-x86_64": {
+            "archive": "https://github.com/crow-cli/crow-cli/releases/download/v0.1.24/crow-cli-linux-x86_64.tar.gz",
+            "cmd": "./crow-cli",
+            "args": [
+              "acp"
+            ],
+            "sha256": "cad2bf555b2c8045d7fcfc1670d89ef3244aacda10cb46faefab7585d0a0589d"
+          }
+        }
+      }
+    },
+    {
+      "id": "cursor",
+      "label": "Cursor",
+      "version": "2026.10.19",
+      "documentation": "https://docs.cursor.com/en/cli/overview",
+      "env": {},
+      "options": {},
+      "distribution": {
+        "binary": {
+          "linux-aarch64": {
+            "archive": "https://downloads.cursor.com/lab/2026.10.19-6bbf2c4/linux/arm64/agent-cli-package.tar.gz",
+            "cmd": "./dist-package/cursor-agent",
+            "args": [
+              "acp"
+            ]
+          },
+          "linux-x86_64": {
+            "archive": "https://downloads.cursor.com/lab/2026.10.19-6bbf2c4/linux/x64/agent-cli-package.tar.gz",
+            "cmd": "./dist-package/cursor-agent",
+            "args": [
+              "acp"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "id": "deepagents",
+      "label": "DeepAgents",
+      "version": "0.1.7",
+      "documentation": "https://docs.langchain.com/oss/javascript/deepagents/overview",
+      "env": {},
+      "options": {},
+      "distribution": {
+        "npx": {
+          "package": "deepagents-acp@0.1.7",
+          "args": [],
+          "bin": "deepagents-acp",
+          "integrity": "sha512-YbwI1CYC1W8n+y/H6Em3OCIBmPCnR0S0cZaLjhwlkl1pSk4A0rIvoG7b6Nte+v6d6IaeSQjgUUTadqkRucbInw==",
+          "lock": {
+            "path": "npm/deepagents.json",
+            "sha256": "8f27c387d95021c449a1e4b955bf3dbbdf40d219567705d86ffd7288048ee09c"
+          }
+        }
+      }
+    },
+    {
+      "id": "devin",
+      "label": "Devin CLI",
+      "version": "3000.11.92",
+      "documentation": "https://cli.devin.ai/docs",
+      "env": {},
+      "options": {},
+      "distribution": {
+        "binary": {
+          "linux-aarch64": {
+            "archive": "https://static.devin.ai/cli/3000.11.92/devin-3000.11.92-aarch64-unknown-linux.tar.gz",
+            "cmd": "./bin/devin",
+            "args": [
+              "acp"
+            ]
+          },
+          "linux-x86_64": {
+            "archive": "https://static.devin.ai/cli/3000.11.92/devin-3000.11.92-x86_64-unknown-linux.tar.gz",
+            "cmd": "./bin/devin",
+            "args": [
+              "acp"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "id": "dimcode",
+      "label": "DimCode",
+      "version": "0.5.21",
+      "documentation": "https://dimcode.dev/docs/acp.html",
+      "env": {},
+      "options": {},
+      "distribution": {
+        "npx": {
+          "package": "dimcode@0.5.21",
+          "args": [
+            "acp"
+          ],
+          "bin": "dimcode",
+          "integrity": "sha512-wR+LxtPFTw0/9ctasT/5BcYJotXageS3C6s0CYChMTyI+ImoSUIKXJWT7zhd5WhBSlMfewIGg6e+MZ83A3SvhA==",
+          "lock": {
+            "path": "npm/dimcode.json",
+            "sha256": "7eb1dda423a136fcd85f5c6edf50bfa610650a08e6a21ada709038b108b9a260"
+          }
+        }
+      }
+    },
+    {
+      "id": "dirac",
+      "label": "Dirac",
+      "version": "0.5.22",
+      "documentation": "https://dirac.run",
+      "env": {},
+      "options": {},
+      "distribution": {
+        "npx": {
+          "package": "dirac-cli@0.5.22",
+          "args": [
+            "--acp"
+          ],
+          "bin": "dirac",
+          "integrity": "sha512-PiW8vAxK3XmtdfXgt4PFFJFB6F487onnN8qkf0NVFq/cRYTbUc95i3x531G+8mUmT4hLbHH38Q3KLAkBdeUMlA==",
+          "lock": {
+            "path": "npm/dirac.json",
+            "sha256": "0000d2b030148d3aa21c8d4695c611ea3b8afb16f1cfb51b8a4f84c641273438"
+          }
+        }
+      }
+    },
+    {
+      "id": "factory-droid",
+      "label": "Factory Droid",
+      "version": "0.247.0",
+      "documentation": "https://factory.ai/product/cli",
+      "env": {
+        "DROID_DISABLE_AUTO_UPDATE": "true",
+        "FACTORY_DROID_AUTO_UPDATE_ENABLED": "false"
+      },
+      "options": {
+        "supportsMcpServers": false
+      },
+      "distribution": {
+        "npx": {
+          "package": "droid@0.247.0",
+          "args": [
+            "exec",
+            "--output-format",
+            "acp-daemon"
+          ],
+          "env": {
+            "DROID_DISABLE_AUTO_UPDATE": "true",
+            "FACTORY_DROID_AUTO_UPDATE_ENABLED": "false"
+          },
+          "bin": "droid",
+          "integrity": "sha512-Q9P7kRYrRxqEaXZ82UuItaH+fkkrmRSuN15SKmfMO93HAKU+3ln6u/TkVcfVZwGRSn3IcwDua1Jdba1zYv4KlA==",
+          "lock": {
+            "path": "npm/factory-droid.json",
+            "sha256": "5dc850ca8b00e1661e9083ea53a0006ae8ffd010f34a32a233e1ed3a29dfe2c4"
+          }
+        }
+      }
+    },
+    {
+      "id": "fast-agent",
+      "label": "fast-agent",
+      "version": "0.10.1",
+      "documentation": "https://fast-agent.ai/acp/",
+      "env": {},
+      "options": {},
+      "distribution": {
+        "uvx": {
+          "package": "fast-agent-acp==0.10.1",
+          "args": [
+            "-x"
+          ],
+          "env": {
+            "FAST_AGENT_MODEL": "codexplan"
+          },
+          "cmd": "fast-agent-acp",
+          "lock": {
+            "path": "python/fast-agent.txt",
+            "sha256": "2b62c80024cd8fc7d0d3683683fa6e226e46f45921db4a7aa5f9f4bc8631bf6e"
+          }
+        }
+      }
+    },
+    {
+      "id": "gemini",
+      "label": "Gemini CLI",
+      "version": "0.65.0",
+      "documentation": "https://geminicli.com",
+      "env": {},
+      "options": {},
+      "distribution": {
+        "npx": {
+          "package": "@google/gemini-cli@0.65.0",
+          "args": [
+            "--acp"
+          ],
+          "bin": "gemini",
+          "integrity": "sha512-B+flaYBNqX2zO71I5/gu7ZsnI38NlpOl654HWz+bK8I/P5sGILQsbkTOQ5a9V+w1Q6QO3wf9PlqtuMsl7XxpNQ==",
+          "lock": {
+            "path": "npm/gemini.json",
+            "sha256": "0c26aa9dc79b934958b81f3986bf5053640472f7eebe3165b0149e2a5510f09b"
+          }
+        }
+      }
+    },
+    {
+      "id": "gjc",
+      "label": "Gajae Code",
+      "version": "v0.19.0",
+      "documentation": "https://gajae-code.com",
+      "env": {
+        "GJC_ACP_PERMISSION_MODE": "prompt"
+      },
+      "options": {},
+      "distribution": {
+        "binary": {
+          "linux-x86_64": {
+            "archive": "https://github.com/Yeachan-Heo/gajae-code/releases/download/v0.19.0/gjc-linux-x64",
+            "sha256": "9e0cfe2ad0ffd7851211289e927d709f6d30a8f33ee32ae87a3a7f1fdaf9fc18",
+            "cmd": "./gjc",
+            "args": [
+              "acp"
+            ],
+            "raw": true
+          },
+          "linux-aarch64": {
+            "archive": "https://github.com/Yeachan-Heo/gajae-code/releases/download/v0.19.0/gjc-linux-arm64",
+            "sha256": "18c3f2568c1c0dfed057c9ccc79da7bdb152f11cb98e08c442f426072a60eeaa",
+            "cmd": "./gjc",
+            "args": [
+              "acp"
+            ],
+            "raw": true
+          }
+        }
+      }
+    },
+    {
+      "id": "glm-acp-agent",
+      "label": "GLM Agent",
+      "version": "1.15.0",
+      "documentation": "https://github.com/stefandevo/glm-acp-agent",
+      "env": {},
+      "options": {},
+      "distribution": {
+        "npx": {
+          "package": "glm-acp-agent@1.15.0",
+          "bin": "glm-acp-agent",
+          "integrity": "sha512-WL/ZueEc5MY3ZtvPtMTveb1hekerqzG+pg6C/sYBtmVUaF6VJ1wUd8eD1sywe+xoi7C/ul6g+ISe4g6XULsCkg==",
+          "lock": {
+            "path": "npm/glm-acp-agent.json",
+            "sha256": "b02d9e32bb58695f77d1bfe673ae17687f4d69ba04f7101df6bb0e40fabb845e"
+          }
+        }
+      }
+    },
+    {
+      "id": "goose",
+      "label": "goose",
+      "version": "1.55.0",
+      "documentation": "https://block.github.io/goose/",
+      "env": {},
+      "options": {},
+      "distribution": {
+        "binary": {
+          "linux-aarch64": {
+            "archive": "https://github.com/block/goose/releases/download/v1.55.0/goose-aarch64-unknown-linux-gnu.tar.bz2",
+            "cmd": "./goose",
+            "args": [
+              "acp"
+            ],
+            "sha256": "e6cded0c5d7d8227f052928eed22a4d64043c3d6551275faa96a9be7d26a9068"
+          },
+          "linux-x86_64": {
+            "archive": "https://github.com/block/goose/releases/download/v1.55.0/goose-x86_64-unknown-linux-gnu.tar.bz2",
+            "cmd": "./goose",
+            "args": [
+              "acp"
+            ],
+            "sha256": "d9afefe7b8f4e372ebefd8b465ab6eea1f297304d058e8e9379ed627e0329708"
+          }
+        }
+      }
+    },
+    {
+      "id": "grok",
+      "label": "Grok",
+      "version": "1.0.68",
+      "documentation": "https://docs.x.ai/build/overview",
+      "env": {},
+      "options": {},
+      "distribution": {
+        "npx": {
+          "package": "@xai-official/grok@1.0.68",
+          "args": [
+            "agent",
+            "stdio"
+          ],
+          "bin": "grok",
+          "integrity": "sha512-JdJ6yJrJyFhSSdqO0neOT8tTMYJ4aK4kXpuM1mFS2nhiz+GaEFMuJ/KMWDOCM+EG5+IGxcFK60eaYvUS/ZgplA==",
+          "lock": {
+            "path": "npm/grok.json",
+            "sha256": "1d39d94af4cd8387bda8605a86e7f10410284c22f7629711398076a64af2ec59"
+          }
+        }
+      }
+    },
+    {
+      "id": "hermes",
+      "label": "Hermes",
+      "version": "v0.22.4",
+      "documentation": "https://hermes-agent.nousresearch.com/docs/user-guide/features/acp",
+      "env": {},
+      "options": {},
+      "distribution": {
+        "source": {
+          "archive": "https://codeload.github.com/NousResearch/hermes-agent/tar.gz/4d04303818b61bf3aa09278af48356315515965b",
+          "sha256": "147a567a05402c2832ca12d7e0a33f48fc0e7f627018687cbae1f333dafff0c2",
+          "python": "3.14.9",
+          "args": [
+            "acp"
+          ],
+          "cmd": ".venv/bin/hermes",
+          "extra": "acp",
+          "buildLock": {
+            "path": "python/hermes-build.txt",
+            "sha256": "a0f608487598fc67fb5c89c53787ccdf2c420fd7a105230b0ba918b7dccf61ea"
+          }
+        }
+      }
+    },
+    {
+      "id": "hoplite",
+      "label": "Hoplite",
+      "version": "3.0.0",
+      "documentation": "https://hoplite.sh/docs/cli#install",
+      "env": {},
+      "options": {},
+      "distribution": {
+        "binary": {
+          "linux-x86_64": {
+            "archive": "https://hoplite.sh/downloads/releases/3.0.0/hoplite_3.0.0_linux_amd64.tar.gz",
+            "sha256": "1ed4dca736d1c29f37ce132138116b9ead212361e5ea00dc1d67cf1ab37e8da6",
+            "cmd": "./hoplite",
+            "args": [
+              "acp"
+            ]
+          },
+          "linux-aarch64": {
+            "archive": "https://hoplite.sh/downloads/releases/3.0.0/hoplite_3.0.0_linux_arm64.tar.gz",
+            "sha256": "70229ad0b055e245bc6749ab87e597f2e225e9aa3de3eb4784317595c1b9c8f6",
+            "cmd": "./hoplite",
+            "args": [
+              "acp"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "id": "junie",
+      "label": "Junie",
+      "version": "3659.7.0",
+      "documentation": "https://junie.jetbrains.com/docs/junie-cli-acp.html",
+      "env": {},
+      "options": {},
+      "distribution": {
+        "binary": {
+          "linux-aarch64": {
+            "archive": "https://github.com/JetBrains/junie-acp-release/releases/download/3659.7/junie-release-3659.7-linux-aarch64.zip",
+            "cmd": "./junie-app/bin/junie",
+            "args": [
+              "--acp=true"
+            ],
+            "sha256": "02fa3fd43bf1e4d2c104387f72f24e2bffc6a256ea9b58806aff5eea6ab9bc89"
+          },
+          "linux-x86_64": {
+            "archive": "https://github.com/JetBrains/junie-acp-release/releases/download/3659.7/junie-release-3659.7-linux-amd64.zip",
+            "cmd": "./junie-app/bin/junie",
+            "args": [
+              "--acp=true"
+            ],
+            "sha256": "120b58485c8f32e8018166649a000949f980b5ced29ed8cd449077e4d3c144e1"
+          }
+        }
+      }
+    },
+    {
+      "id": "kilo",
+      "label": "Kilo",
+      "version": "7.8.15",
+      "documentation": "https://kilo.ai/docs/code-with-ai/platforms/cli",
+      "env": {},
+      "options": {},
+      "distribution": {
+        "binary": {
+          "linux-aarch64": {
+            "archive": "https://github.com/Kilo-Org/kilocode/releases/download/v7.8.15/kilo-linux-arm64.tar.gz",
+            "cmd": "./kilo",
+            "args": [
+              "acp"
+            ],
+            "sha256": "d89b98374d2ddb29cbcce13b3a206c50160b6d32044bf32a5dc3655103e37bcb"
+          },
+          "linux-x86_64": {
+            "archive": "https://github.com/Kilo-Org/kilocode/releases/download/v7.8.15/kilo-linux-x64.tar.gz",
+            "cmd": "./kilo",
+            "args": [
+              "acp"
+            ],
+            "sha256": "958e4b9919978dd14dddbd96b2db00ea3501d4fb4c64df831744004ea90b660c"
+          }
+        },
+        "npx": {
+          "package": "@kilocode/cli@7.8.15",
+          "args": [
+            "acp"
+          ],
+          "bin": "kilo",
+          "integrity": "sha512-vLfP64MSNZkIDrTPY/2GZwWiNnkM0/nDN+mNO6TamAYaGpjnDe2uRnDCdIo4PV/RAO1aevPeBY8vfaaZ0BUdbA==",
+          "lock": {
+            "path": "npm/kilo.json",
+            "sha256": "9bb61cc5f9112dbdef321f5433e792986201c6f296303ae382b50706a6289c66"
+          }
+        }
+      }
+    },
+    {
+      "id": "kiro",
+      "label": "Kiro CLI",
+      "version": "2.33.1",
+      "documentation": "https://kiro.dev/docs/cli/acp/",
+      "env": {},
+      "options": {},
+      "distribution": {
+        "binary": {
+          "linux-x86_64": {
+            "archive": "https://prod.download.cli.kiro.dev/stable/2.33.1/kirocli-x86_64-linux.tar.gz",
+            "sha256": "5993158abeb1a3086a591d5c7dd77e3db3c889a3c0d8b41418bc6a1af79400fb",
+            "cmd": "./kirocli/bin/kiro-cli",
+            "args": [
+              "acp"
+            ]
+          },
+          "linux-aarch64": {
+            "archive": "https://prod.download.cli.kiro.dev/stable/2.33.1/kirocli-aarch64-linux.tar.gz",
+            "sha256": "b0e002b8fb512cbeb697a224ebe8ee9e0f15b3ab0427062205422c0b37b35f66",
+            "cmd": "./kirocli/bin/kiro-cli",
+            "args": [
+              "acp"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "id": "kimi",
+      "label": "Kimi Code CLI",
+      "version": "1.52.0",
+      "documentation": "https://github.com/MoonshotAI/kimi-code",
+      "env": {},
+      "options": {},
+      "distribution": {
+        "binary": {
+          "linux-aarch64": {
+            "archive": "https://github.com/MoonshotAI/kimi-cli/releases/download/1.52.0/kimi-1.52.0-aarch64-unknown-linux-gnu.tar.gz",
+            "cmd": "./kimi",
+            "args": [
+              "acp"
+            ],
+            "sha256": "9e06eea96273600aed485b1f0bedda95b7084db4f22cf28614fe20138933507a"
+          },
+          "linux-x86_64": {
+            "archive": "https://github.com/MoonshotAI/kimi-cli/releases/download/1.52.0/kimi-1.52.0-x86_64-unknown-linux-gnu.tar.gz",
+            "cmd": "./kimi",
+            "args": [
+              "acp"
+            ],
+            "sha256": "a676204f7804ed5dae87652a9d66f578e0718d5026c9cb1bfa32b9a5eace4208"
+          }
+        }
+      }
+    },
+    {
+      "id": "minimax-code",
+      "label": "MiniMax Code",
+      "version": "0.2.7",
+      "documentation": "https://agent.minimax.io",
+      "env": {},
+      "options": {},
+      "distribution": {
+        "npx": {
+          "package": "@minimax-ai/code@0.2.7",
+          "args": [
+            "acp"
+          ],
+          "bin": "mcode",
+          "integrity": "sha512-hj7Zju+k/k0HjypaAsycdhB53py6Y0fxC+vh8qRJ3Rg+eoeYGwAK2pLdBPDm57//QJWoKtN67ffQFGkbLPO0xw==",
+          "lock": {
+            "path": "npm/minimax-code.json",
+            "sha256": "1bbad13e27c4fc773e24a77fb66d2d4aaa387aaec1d297192379c67a2216ba48"
+          }
+        }
+      }
+    },
+    {
+      "id": "minion-code",
+      "label": "Minion Code",
+      "version": "0.1.44",
+      "documentation": "https://github.com/femto/minion-code",
+      "env": {},
+      "options": {},
+      "distribution": {
+        "uvx": {
+          "package": "minion-code==0.1.44",
+          "args": [
+            "acp"
+          ],
+          "cmd": "minion-code",
+          "lock": {
+            "path": "python/minion-code.txt",
+            "sha256": "d1535fad77408ca675bc4ad63a9f52c9daec7dc2eae12fb01e184811990d69e7"
+          }
+        }
+      }
+    },
+    {
+      "id": "mistral-vibe",
+      "label": "Mistral Vibe",
+      "version": "3.0.1",
+      "documentation": "https://github.com/mistralai/mistral-vibe",
+      "env": {},
+      "options": {},
+      "distribution": {
+        "binary": {
+          "linux-aarch64": {
+            "archive": "https://github.com/mistralai/mistral-vibe/releases/download/v3.0.1/vibe-acp-linux-aarch64-3.0.1.tar.gz",
+            "cmd": "./vibe-acp",
+            "sha256": "7ef82101b23d286fb43eb911a6f2d75cf67cbb0ca3d026e7ff1db9d8ccaf32e0"
+          },
+          "linux-x86_64": {
+            "archive": "https://github.com/mistralai/mistral-vibe/releases/download/v3.0.1/vibe-acp-linux-x86_64-3.0.1.tar.gz",
+            "cmd": "./vibe-acp",
+            "sha256": "0771544f32f64132731e3d40ca1fdfa628c6076dae1ad4d273fdc31562a13062"
+          }
+        }
+      }
+    },
+    {
+      "id": "nova",
+      "label": "Nova",
+      "version": "1.1.59",
+      "documentation": "https://www.compassap.ai/portfolio/nova.html",
+      "env": {},
+      "options": {},
+      "distribution": {
+        "npx": {
+          "package": "@compass-ai/nova@1.1.59",
+          "args": [
+            "acp"
+          ],
+          "bin": "nova",
+          "integrity": "sha512-6k0RdQ8fS0/9VGDUv7gcVgUc88p3eA/gV5GdGxUqTR0BakLgFd9kz2TwABHH5fdB9rENFsOVGZK/Brchlbwl3g==",
+          "lock": {
+            "path": "npm/nova.json",
+            "sha256": "b4ce15969b59822f03681de598a533409730b7aee9bd876f31b0070c2fdf6b0b"
+          }
+        }
+      }
+    },
+    {
+      "id": "poolside",
+      "label": "Poolside",
+      "version": "1.0.16",
+      "documentation": "https://docs.poolside.ai/cli/pool",
+      "env": {},
+      "options": {},
+      "distribution": {
+        "binary": {
+          "linux-aarch64": {
+            "archive": "https://downloads.poolside.ai/pool/v1.0.16/pool-linux-arm64.tar.gz",
+            "cmd": "./pool-linux-arm64",
+            "args": [
+              "acp"
+            ],
+            "sha256": "466343b66b03ee4e66476fcc69be1eb5bf8e9155a4ab73e0e72a232d1f8d2a12"
+          },
+          "linux-x86_64": {
+            "archive": "https://downloads.poolside.ai/pool/v1.0.16/pool-linux-amd64.tar.gz",
+            "cmd": "./pool-linux-amd64",
+            "args": [
+              "acp"
+            ],
+            "sha256": "e86aa8c9feef003540673ab494e91bfadc273218d531c43d662cafb69e464146"
+          }
+        }
+      }
+    },
+    {
+      "id": "qoder",
+      "label": "Qoder CLI",
+      "version": "0.2.14",
+      "documentation": "https://qoder.com",
+      "env": {},
+      "options": {},
+      "distribution": {
+        "npx": {
+          "package": "@qoder-ai/qodercli@0.2.14",
+          "args": [
+            "--acp"
+          ],
+          "bin": "qodercli",
+          "integrity": "sha512-K3vrinxakPv0W8w+KAV1khtlEDjCvjJ8VbAkvxa6L9yLwiljBB4IrG5d7Xs0uge1n/C061FgmCm50WVqh8QRwg==",
+          "lock": {
+            "path": "npm/qoder.json",
+            "sha256": "942d2940062ff42700270ce2ca7b9435ca454165e79f0209447b603183b6a610"
+          }
+        }
+      }
+    },
+    {
+      "id": "qwen-code",
+      "label": "Qwen Code",
+      "version": "0.26.0",
+      "documentation": "https://qwenlm.github.io/qwen-code-docs/en/users/overview",
+      "env": {},
+      "options": {},
+      "distribution": {
+        "npx": {
+          "package": "@qwen-code/qwen-code@0.26.0",
+          "args": [
+            "--acp",
+            "--experimental-skills"
+          ],
+          "bin": "qwen",
+          "integrity": "sha512-JFO+gXpc3AVB+sR+ybQUb20DFfBMgB3p+F+rbru6xWeooYTixqOhCa3tOj0gCrDfkRxZFIziIH+zL05JgA2xVw==",
+          "lock": {
+            "path": "npm/qwen-code.json",
+            "sha256": "f905e0821e4ed9efdb74e04f28a5f639d0a4d3f0f58aa4a76814765bef4822d0"
+          }
+        }
+      }
+    },
+    {
+      "id": "sigit",
+      "label": "siGit Code",
+      "version": "1.7.4",
+      "documentation": "https://github.com/getsigit/sigit",
+      "env": {},
+      "options": {},
+      "distribution": {
+        "binary": {
+          "linux-aarch64": {
+            "archive": "https://github.com/getsigit/sigit/releases/download/v1.7.4/sigit-linux-arm64",
+            "cmd": "./sigit-linux-arm64",
+            "sha256": "395da501bfe0c6c3b59e6ab25e94b35d7608856c96c9d34e7ced93b29ca7c1b4"
+          },
+          "linux-x86_64": {
+            "archive": "https://github.com/getsigit/sigit/releases/download/v1.7.4/sigit-linux-amd64",
+            "cmd": "./sigit-linux-amd64",
+            "sha256": "eace6933f8fcf6276e2ffee3c25ec6319dfd5374918899cc130d6d926f758197"
+          }
+        },
+        "npx": {
+          "package": "@smbcloud/sigit@1.7.4",
+          "bin": "sigit",
+          "integrity": "sha512-RG48N7YyvHdqZkQSw6FQW+4wJvczhVEO8/gVpXDiB1kzssKWWpSYb61n7fPoiJFc+GVRB2KTaQ7l33zjMlW/7Q==",
+          "lock": {
+            "path": "npm/sigit.json",
+            "sha256": "c3dd5b16d4373f082b227af57cd5c9179fe426c901e69dacca9dc3ea7afc0d56"
+          }
+        }
+      }
+    },
+    {
+      "id": "stakpak",
+      "label": "Stakpak",
+      "version": "0.3.88",
+      "documentation": "https://stakpak.dev/",
+      "env": {},
+      "options": {},
+      "distribution": {
+        "binary": {
+          "linux-aarch64": {
+            "archive": "https://github.com/stakpak/agent/releases/download/v0.3.88/stakpak-linux-aarch64.tar.gz",
+            "cmd": "./stakpak",
+            "args": [
+              "acp"
+            ],
+            "sha256": "8312b611b5a635ea7411555f082b0fb3b6d644f99007d2c6a1f30fc6c13e725d"
+          },
+          "linux-x86_64": {
+            "archive": "https://github.com/stakpak/agent/releases/download/v0.3.88/stakpak-linux-x86_64.tar.gz",
+            "cmd": "./stakpak",
+            "args": [
+              "acp"
+            ],
+            "sha256": "1e923d6b632e6bda743b3f48c40914f657853478647c26d0a47729a7728490c6"
+          }
+        }
+      }
+    },
+    {
+      "id": "traecli",
+      "label": "TRAE CLI",
+      "version": "manual",
+      "documentation": "https://docs.trae.cn/cli_get-started-with-trae-cli",
+      "env": {},
+      "options": {},
+      "distribution": {},
+      "unavailable": "Official installer https://trae.cn/trae-cli/install_v2.sh returned HTTP 403 from the build-preparation environment; no verified redistributable archive available."
+    },
+    {
+      "id": "vtcode",
+      "label": "VT Code",
+      "version": "0.96.14",
+      "documentation": "https://github.com/vinhnx/VTCode/blob/main/docs/guides/zed-acp.md",
+      "env": {
+        "VT_ACP_ENABLED": "1",
+        "VT_ACP_ZED_ENABLED": "1"
+      },
+      "options": {},
+      "distribution": {
+        "binary": {
+          "linux-x86_64": {
+            "archive": "https://github.com/vinhnx/VTCode/releases/download/0.96.14/vtcode-0.96.14-x86_64-unknown-linux-gnu.tar.gz",
+            "cmd": "./vtcode",
+            "args": [
+              "acp"
+            ],
+            "env": {
+              "VT_ACP_ENABLED": "1",
+              "VT_ACP_ZED_ENABLED": "1"
+            },
+            "sha256": "37857dab5c9f758d8a7d2e409feca12ca508682be049c47786f45a5517e438ed"
+          }
+        }
+      }
+    },
+    {
+      "id": "copilot-acp",
+      "label": "GitHub Copilot ACP",
+      "version": "1.0.102",
+      "documentation": "https://paseo.sh/docs/supported-providers",
+      "env": {},
+      "options": {},
+      "distribution": {
+        "installed": {
+          "cmd": "/opt/paseo-acp/bin/copilot",
+          "args": [
+            "--acp"
+          ]
+        }
+      }
+    }
+  ]
+}

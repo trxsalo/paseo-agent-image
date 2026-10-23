@@ -34,6 +34,15 @@ with tempfile.TemporaryDirectory(prefix="paseo-muse-wrapper-") as tmp:
     home.mkdir()
     env = os.environ.copy()
     env["HOME"] = str(home)
+    identity = {}
+    if os.geteuid() == 0:
+        rejected = subprocess.run(["/bin/sh", str(test_wrapper)], env=env,
+                                  text=True, capture_output=True)
+        if rejected.returncode == 0 or 'not root' not in rejected.stderr:
+            raise SystemExit('Muse must reject root before executing user-writable state')
+        root.chmod(0o755)
+        os.chown(home, 1000, 1000)
+        identity = {"user": 1000, "group": 1000, "extra_groups": []}
 
     for argument in ("--first-check", "--second-check"):
         result = subprocess.run(
@@ -42,6 +51,7 @@ with tempfile.TemporaryDirectory(prefix="paseo-muse-wrapper-") as tmp:
             text=True,
             capture_output=True,
             check=False,
+            **identity,
         )
         if result.returncode:
             raise SystemExit(f"Muse wrapper failed: {result.stderr.strip()}")

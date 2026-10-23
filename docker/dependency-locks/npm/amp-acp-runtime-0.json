@@ -1,0 +1,103 @@
+{
+  "name": "paseo-amp-acp-runtime-0",
+  "version": "1.0.0",
+  "lockfileVersion": 3,
+  "requires": true,
+  "packages": {
+    "": {
+      "name": "paseo-amp-acp-runtime-0",
+      "version": "1.0.0",
+      "dependencies": {
+        "@ampcode/cli": "0.0.1792684837-g5097b1"
+      }
+    },
+    "node_modules/@ampcode/cli": {
+      "version": "0.0.1792684837-g5097b1",
+      "resolved": "https://registry.npmjs.org/@ampcode/cli/-/cli-0.0.1792684837-g5097b1.tgz",
+      "integrity": "sha512-C8i2gwyhsKM4Ez2Q/sF5hDAB/qR0R54Rx7K2W1OGwWqUgaDq9XzQSxQf/gQtfpSuasm/U+aPTJAtIvdoFzmPVA==",
+      "hasInstallScript": true,
+      "license": "SEE LICENSE IN LICENSE.md",
+      "bin": {
+        "amp": "bin/amp.exe"
+      },
+      "optionalDependencies": {
+        "@ampcode/cli-darwin-arm64": "0.0.1792684837-g5097b1",
+        "@ampcode/cli-darwin-x64": "0.0.1792684837-g5097b1",
+        "@ampcode/cli-linux-arm64": "0.0.1792684837-g5097b1",
+        "@ampcode/cli-linux-x64": "0.0.1792684837-g5097b1",
+        "@ampcode/cli-win32-x64": "0.0.1792684837-g5097b1"
+      }
+    },
+    "node_modules/@ampcode/cli-darwin-arm64": {
+      "version": "0.0.1792684837-g5097b1",
+      "resolved": "https://registry.npmjs.org/@ampcode/cli-darwin-arm64/-/cli-darwin-arm64-0.0.1792684837-g5097b1.tgz",
+      "integrity": "sha512-smpv62BlsZ0lk+sfYY7V+twHhvI/s1q8SCGoihgC2yBiNMbUfxBR0wbrjaN0i02J52kL+UK5Htr3YWW2ipolzA==",
+      "cpu": [
+        "arm64"
+      ],
+      "license": "SEE LICENSE IN LICENSE.md",
+      "optional": true,
+      "os": [
+        "darwin"
+      ]
+    },
+    "node_modules/@ampcode/cli-darwin-x64": {
+      "version": "0.0.1792684837-g5097b1",
+      "resolved": "https://registry.npmjs.org/@ampcode/cli-darwin-x64/-/cli-darwin-x64-0.0.1792684837-g5097b1.tgz",
+      "integrity": "sha512-nIQHbaQYG+GUdtz9bltx2afXeT5KPcUSELhQsbtQiiKRO1yV3jK+nSmswl8YaXf5G+R4h8aIGnGA+jVu0C/qmA==",
+      "cpu": [
+        "x64"
+      ],
+      "license": "SEE LICENSE IN LICENSE.md",
+      "optional": true,
+      "os": [
+        "darwin"
+      ]
+    },
+    "node_modules/@ampcode/cli-linux-arm64": {
+      "version": "0.0.1792684837-g5097b1",
+      "resolved": "https://registry.npmjs.org/@ampcode/cli-linux-arm64/-/cli-linux-arm64-0.0.1792684837-g5097b1.tgz",
+      "integrity": "sha512-XJXSoLc0AyOH9gCqsU3gguhtgXZ2D7gA1Nxfmln2PUovz6WNduobrVosKIsbB1tYXVBbuddoomy/U7nWBQeQSQ==",
+      "cpu": [
+        "arm64"
+      ],
+      "libc": [
+        "glibc"
+      ],
+      "license": "SEE LICENSE IN LICENSE.md",
+      "optional": true,
+      "os": [
+        "linux"
+      ]
+    },
+    "node_modules/@ampcode/cli-linux-x64": {
+      "version": "0.0.1792684837-g5097b1",
+      "resolved": "https://registry.npmjs.org/@ampcode/cli-linux-x64/-/cli-linux-x64-0.0.1792684837-g5097b1.tgz",
+      "integrity": "sha512-THDgi98hltlItfn3hkMBfcQ0dLdBb/kr3gYIpB77P2wZm6/5w0uvbsemsbWkC/3sTxfMF5AzRCCNZToryAiM5A==",
+      "cpu": [
+        "x64"
+      ],
+      "libc": [
+        "glibc"
+      ],
+      "license": "SEE LICENSE IN LICENSE.md",
+      "optional": true,
+      "os": [
+        "linux"
+      ]
+    },
+    "node_modules/@ampcode/cli-win32-x64": {
+      "version": "0.0.1792684837-g5097b1",
+      "resolved": "https://registry.npmjs.org/@ampcode/cli-win32-x64/-/cli-win32-x64-0.0.1792684837-g5097b1.tgz",
+      "integrity": "sha512-xk9EmfyWL/bjsCTHrpjR/RLD4gr14fvw+ZG8NfIM5YwoXfsI6SUPWoJpBcS+pDkFoywmHtHPkY4G54Ql20hF5A==",
+      "cpu": [
+        "x64"
+      ],
+      "license": "SEE LICENSE IN LICENSE.md",
+      "optional": true,
+      "os": [
+        "win32"
+      ]
+    }
+  }
+}
