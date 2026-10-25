@@ -32,7 +32,7 @@
 - Muse rechaza ejecuciones como root antes de leer o ejecutar su estado en el
   home escribible. Su prueba de staging se ejecuta ahora sin privilegios.
 - El daemon exige `PASEO_PASSWORD`: la base únicamente advertía y podía aceptar
-  conexiones de control sin autenticación. Configurar el secreto en Dokploy
+  conexiones de control sin autenticación. Configurar el secreto en la plataforma de despliegue
   antes de recrear el servicio. Las órdenes de consola explícitas se ejecutan
   como paseo después de la reparación y no arrancan automáticamente el daemon.
 
@@ -46,8 +46,8 @@ ancestro después de `stat`, hardlinks, montajes del mismo dispositivo, rutas
 externas, home con ancestro simbólico y falta de información de montajes.
 También se mantienen las pruebas de permisos reales como UID 1000 y de Muse.
 
-Resultado local: 28 pruebas del instalador y 9 del init pasan con Python 3.11
-de la base real de Paseo. Se construyó `runtime-base` AMD64, incluida la instalación
+Resultado registrado en esta revisión: 28 pruebas del instalador y 9 del init pasan con Python 3.11
+de la imagen base de Paseo. Se construyó `runtime-base` AMD64, incluida la instalación
 de uv con hashes obligatorios. Una instalación real de Agoragentic terminó como
 UID 1000 usando su lock fijado (98 paquetes). La integración con Tini, gosu y el
 entrypoint upstream devolvió `service_uid=1000` y `external_directory_owner=0`
@@ -59,16 +59,16 @@ por hashes. La sincronización congelada, sin aislamiento de construcción,
 instaló sus dependencias y devolvió `Hermes ACP check OK`.
 
 También se construyó una variante AMD64 con las cinco CLIs npm nativas y Agor,
-y pasaron sus comprobaciones de versión. La imagen local de validación final
-incorpora el helper y los locks actuales sobre esa variante. Desde su entrypoint
+y pasaron sus comprobaciones de versión. La imagen de validación de esta revisión
+incorpora el helper y los locks revisados sobre esa variante. Desde su entrypoint
 real se comprobaron UID 1000 y 24 780 entradas de artefactos propiedad de root,
 sin escritura de grupo/otros ni bits setuid/setgid. Se verificó que el daemon
 rechaza un arranque sin contraseña y que Muse rechaza ejecutarse como root.
 
 No se ha construido el catálogo completo ni ARM64, ni se ha iniciado una sesión
 autenticada de todos los proveedores. Esas validaciones siguen pendientes antes
-del despliegue completo. No se ha modificado el servidor ni se han publicado
-imágenes como parte de estas correcciones.
+del despliegue completo. Estas comprobaciones no incluyen publicación de
+imágenes ni cambios en un despliegue.
 
 Los ejecutables de Hermes son ahora inmutables para `paseo`: los extras que un
 proveedor necesite deben prepararse en el build. Un agente con acceso a archivos
