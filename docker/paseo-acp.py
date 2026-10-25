@@ -150,6 +150,28 @@ def reviewed_lock(dist):
     return data
 
 
+def check_locks(catalog, native):
+    packages = list(native['packages'])
+    for agent in catalog['agents']:
+        packages.extend(agent.get('npmPrerequisites', []))
+        if 'npx' in agent['distribution']:
+            packages.append(agent['distribution']['npx'])
+    for dist in packages:
+        if not dist.get('lock'):
+            continue  # Unreviewed recipes remain unavailable to the installer.
+        data = reviewed_lock(dist)
+        lock = json.loads(data)
+        print(f"Checking npm lock {dist['package']}", flush=True)
+        with tempfile.TemporaryDirectory(prefix='paseo-lock-check-') as temporary:
+            directory = Path(temporary)
+            (directory / 'package-lock.json').write_bytes(data)
+            (directory / 'package.json').write_text(json.dumps(lock['packages']['']))
+            run('npm', 'ci', '--prefix', str(directory), '--dry-run',
+                '--ignore-scripts', '--prefer-offline', '--no-audit', '--no-fund',
+                '--loglevel=error', stdout=subprocess.DEVNULL)
+    print('npm dependency locks: passed', flush=True)
+
+
 def install_npm(dist, directory):
     data = reviewed_lock(dist)
     lock = json.loads(data)
@@ -345,12 +367,15 @@ def configure(receipts, selected):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('action', choices=['install', 'install-native', 'list', 'configure', 'check'])
+    parser.add_argument('action', choices=['install', 'install-native', 'list', 'configure', 'check', 'check-locks'])
     parser.add_argument('ids', nargs='*')
     parser.add_argument('--all', action='store_true')
     parser.add_argument('--arch', default=platform.machine(), choices=list(TARGETS))
     parser.add_argument('--only', help='Build/debug subset of catalog IDs, comma separated')
     args = parser.parse_args()
+    if args.action == 'check-locks':
+        check_locks(json.loads(LOCK.read_text()), json.loads(NATIVE.read_text()))
+        return
     if args.action == 'install-native':
         if os.geteuid() == 0:
             raise ValueError('Install CLIs in the unprivileged build stage')

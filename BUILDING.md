@@ -25,6 +25,12 @@ npm and uv downloads per architecture, outside the final image. Retry a failed
 build with the same builder and without `--no-cache` to retain completed layers
 and reuse downloaded packages; package integrity checks still apply.
 
+Before installing the native CLIs or ACP agents, `paseo-acp check-locks` checks
+all reviewed npm graphs with `npm ci --dry-run --ignore-scripts`. This catches
+inconsistent locks early. It can consult registry metadata, but does not run
+package lifecycle scripts or install agents. Nova 1.1.59 uses an explicit UUID
+override matching its bundled dependency; see the ACP provider documentation.
+
 The image does not enable providers in Paseo or include any provider credentials. Complete each provider's own interactive authentication as the `paseo` user. The Oh My Pi toggle remains a Paseo setting and is not changed by installing its CLI. Antigravity can run with broad workspace/command permissions in Paseo; enable it only if that access is intended.
 
 At startup, a Python helper walks verified file descriptors below `/home/paseo`

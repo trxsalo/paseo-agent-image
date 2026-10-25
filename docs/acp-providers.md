@@ -159,6 +159,16 @@ agentes del mismo usuario: para ello se requieren contenedores/usuarios separado
 
 ## Validar y actualizar
 
+El build ejecuta primero `paseo-acp check-locks` para comprobar todos los grafos
+npm antes de las instalaciones largas. Usa `npm ci --dry-run --ignore-scripts`;
+puede consultar metadatos del registro, sin ejecutar scripts de paquetes.
+
+Nova 1.1.59 incluye uuid 11.1.1 dentro de ExcelJS, aunque el manifiesto interno
+de ExcelJS pide 8.x. Su lock incorpora un `overrides` explícito que coincide con
+la versión incluida y protegida por la integridad de Nova. No se modifica el
+paquete publicado ni se cambia a `npm install` durante el build. El generador
+conserva esta política únicamente para esa versión de Nova.
+
 `paseo-acp check` comprueba presencia y sintaxis de los lanzadores sin autenticar.
 Las pruebas de `tests/test_acp_installer.py` cubren extracción segura, checksum,
 argumentos, arquitecturas ausentes y conservación de configuración. No sustituyen

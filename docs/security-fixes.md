@@ -90,6 +90,18 @@ entradas `bin` en los locks. Las capas nativas y ACP se separaron y las descarga
 npm/uv se almacenan en cachés BuildKit por arquitectura; esas cachés no se copian
 a la imagen final.
 
+Actualización 2026-10-24: se corrigió el conflicto entre uuid 11.1.1 incluido
+por Nova 1.1.59 y el requisito 8.x del ExcelJS que trae empaquetado. Se añadió
+un override explícito en la raíz del lock y se actualizó su SHA-256 en el
+catálogo, sin cambiar versiones ni integridades del resto del grafo. El generador
+preserva esa política para esta versión. El build comprueba primero todos los
+locks npm con `npm ci --dry-run --ignore-scripts`, antes de instalar agentes;
+esa comprobación puede consultar metadatos del registro. Pasan 30 pruebas del
+instalador. La instalación real de Nova AMD64 como UID 1000 terminó, arrancaron
+tanto el CLI como el lanzador ACP con `--help`, y ExcelJS generó un XLSX válido.
+Los 24 locks npm pasaron la comprobación previa tanto en AMD64 como en ARM64
+(bajo emulación). Esto valida sus grafos, no una imagen completa del catálogo.
+
 La corrección de Cline se verificó con instalaciones reales como UID 1000 en
 AMD64 y ARM64 (esta última bajo emulación), y ambos lanzadores devolvieron
 `3.0.73`. En AMD64 se confirmó además que `.bin/cline` seguía ausente, por lo

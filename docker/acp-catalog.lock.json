@@ -811,7 +811,7 @@
           "integrity": "sha512-6k0RdQ8fS0/9VGDUv7gcVgUc88p3eA/gV5GdGxUqTR0BakLgFd9kz2TwABHH5fdB9rENFsOVGZK/Brchlbwl3g==",
           "lock": {
             "path": "npm/nova.json",
-            "sha256": "b4ce15969b59822f03681de598a533409730b7aee9bd876f31b0070c2fdf6b0b"
+            "sha256": "215bf7b022f4ff6c8db8bb28fb5c580416e6056b93e0d8ed545e4cd964e3fde5"
           }
         }
       }

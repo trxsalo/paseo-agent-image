@@ -188,6 +188,33 @@ class AcpInstallerTest(unittest.TestCase):
                 acp.install_npm(dist, acp.ROOT / 'agent')
         run.assert_not_called()
 
+    def test_npm_preflight_preserves_overrides_without_install_scripts(self):
+        lock = self.npm_fixture()
+        lock['packages']['']['overrides'] = {'example-agent': {'uuid': '11.1.1'}}
+        dist = self.locked_dist(lock)
+
+        def check_ci(*args, **kwargs):
+            self.assertEqual(args[:2], ('npm', 'ci'))
+            self.assertIn('--dry-run', args)
+            self.assertIn('--ignore-scripts', args)
+            directory = Path(args[args.index('--prefix') + 1])
+            root = json.loads((directory / 'package.json').read_text())
+            self.assertEqual(root['overrides'], lock['packages']['']['overrides'])
+
+        with patch.object(acp, 'run', side_effect=check_ci) as run:
+            acp.check_locks({'agents': []}, {'packages': [dist]})
+        run.assert_called_once()
+
+    def test_nova_override_matches_verified_bundled_uuid(self):
+        root = Path(__file__).resolve().parents[1]
+        lock = json.loads((root / 'docker/dependency-locks/npm/nova.json').read_text())
+        package = 'node_modules/@compass-ai/nova'
+        bundled = lock['packages'][package + '/node_modules/exceljs/node_modules/uuid']
+        override = lock['packages']['']['overrides']['@compass-ai/nova']['exceljs']['uuid']
+        self.assertTrue(bundled['inBundle'])
+        self.assertEqual(override, bundled['version'])
+        self.assertEqual(override, '11.1.1')
+
     def test_npm_unreviewed_bin_is_rejected_before_install(self):
         dist = self.locked_dist(self.npm_fixture())
         dist['bin'] = 'unreviewed'

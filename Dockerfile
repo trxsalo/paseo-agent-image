@@ -103,6 +103,8 @@ ENV PASEO_ACP_BIN=/opt/paseo-acp/bin \
     PATH=$PATH:/opt/paseo-acp/bin
 USER paseo
 RUN --mount=type=cache,id=paseo-npm-${TARGETARCH},target=/tmp/paseo-npm-cache,uid=1000,gid=1000,sharing=locked \
+    /usr/local/bin/paseo-acp check-locks
+RUN --mount=type=cache,id=paseo-npm-${TARGETARCH},target=/tmp/paseo-npm-cache,uid=1000,gid=1000,sharing=locked \
     /usr/local/bin/paseo-acp install-native
 RUN --mount=type=cache,id=paseo-npm-${TARGETARCH},target=/tmp/paseo-npm-cache,uid=1000,gid=1000,sharing=locked \
     --mount=type=cache,id=paseo-uv-${TARGETARCH},target=/tmp/paseo-uv-cache,uid=1000,gid=1000,sharing=locked \

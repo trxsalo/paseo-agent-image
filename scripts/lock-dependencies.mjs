@@ -32,10 +32,15 @@ for (const spec of nativeSpecs) {
 
 async function freeze(id, dist) {
   const path = `npm/${id}.json`;
+  // Nova bundles uuid 11.1.1 inside exceljs, whose stale manifest requests 8.x.
+  // Match the binary contents already covered by Nova's reviewed integrity.
+  const overrides = dist.package === '@compass-ai/nova@1.1.59'
+    ? { '@compass-ai/nova': { exceljs: { uuid: '11.1.1' } } } : undefined;
   if (dist.lock) {
     try {
       const bytes = await readFile(new URL(dist.lock.path, locks));
-      if (hash(bytes) === dist.lock.sha256) return;
+      if (hash(bytes) === dist.lock.sha256 &&
+          JSON.stringify(JSON.parse(bytes).packages[''].overrides) === JSON.stringify(overrides)) return;
     } catch {}
   }
   const split = dist.package.lastIndexOf('@');
@@ -43,6 +48,7 @@ async function freeze(id, dist) {
   const temporary = await mkdtemp(join(tmpdir(), 'paseo-lock-'));
   await writeFile(join(temporary, 'package.json'), JSON.stringify({
     name: `paseo-${id}`, version: '1.0.0', private: true, dependencies: { [name]: version },
+    ...(overrides ? { overrides } : {}),
   }));
   await writeFile(join(temporary, '.npmrc'), 'registry=https://registry.npmjs.org/\n');
   console.log(`Locking ${id}: ${dist.package}`);
@@ -50,8 +56,11 @@ async function freeze(id, dist) {
     '--ignore-scripts', '--no-audit', '--no-fund', '--loglevel=error',
     '--userconfig', join(temporary, '.npmrc'), '--registry=https://registry.npmjs.org/'],
     { timeout: 300000, maxBuffer: 1024 * 1024 });
-  const bytes = await readFile(join(temporary, 'package-lock.json'));
-  const lock = JSON.parse(bytes);
+  const lock = JSON.parse(await readFile(join(temporary, 'package-lock.json')));
+  // install_npm reconstructs package.json from this root entry. npm itself does
+  // not retain overrides here, so preserve the reviewed policy with its hash.
+  if (overrides) lock.packages[''].overrides = overrides;
+  const bytes = Buffer.from(JSON.stringify(lock, null, 2) + '\n');
   if (lock.packages[`node_modules/${name}`]?.integrity !== dist.integrity) throw new Error(`Top-level integrity changed: ${id}`);
   for (const [key, pkg] of Object.entries(lock.packages)) {
     if (pkg.inBundle && !pkg.resolved) {
