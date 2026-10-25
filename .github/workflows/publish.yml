@@ -42,7 +42,7 @@ jobs:
       - name: Log in to Docker Hub
         uses: docker/login-action@dbcb813823bdd20940b903addbd779551569679f # v4.6.0
         with:
-          username: trxsalo
+          username: ${{ vars.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Build and push multi-architecture image
@@ -52,6 +52,6 @@ jobs:
           file: ./Dockerfile
           platforms: linux/amd64,linux/arm64
           push: true
-          tags: docker.io/trxsalo/paseo-agent-clis:2026-10-22-providers-acp
+          tags: ${{ vars.DOCKERHUB_IMAGE }}
           cache-from: type=gha
           cache-to: type=gha,mode=max

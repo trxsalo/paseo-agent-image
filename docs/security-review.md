@@ -6,10 +6,9 @@ de línea corresponden a ese estado. Véase `security-fixes.md` para los cambios
 las pruebas y las limitaciones de validación actuales.
 
 Alcance: Dockerfile, catálogo e instalador ACP, init de permisos, lanzador Muse,
-workflow y documentación presentes en la carpeta de trabajo. Se revisan también
-los cambios locales sin commit. Esta revisión no acredita la seguridad del
-despliegue Dokploy: no se ha inspeccionado su Compose, red, montajes ni identidad
-efectiva del daemon.
+workflow y documentación de la revisión del 2026-10-22. Esta revisión no acredita
+la seguridad de un despliegue: su Compose, red, montajes e identidad efectiva
+del daemon deben inspeccionarse por separado.
 
 ## Hallazgos prioritarios
 
@@ -91,8 +90,8 @@ sistema operativo. Si un agente puede ejecutar código sin un sandbox que lo
 impida, UID 1000 puede leer archivos `600` de ese mismo UID, incluidas credenciales
 de otros proveedores bajo `/home/paseo`. Para una frontera de confianza entre
 proveedores o proyectos hacen falta usuarios/contenedores separados, montajes
-limitados y credenciales de alcance reducido. El problema de bubblewrap descrito
-en el SDD continúa pendiente de diagnóstico.
+limitados y credenciales de alcance reducido. La compatibilidad con bubblewrap debe
+validarse en cada despliegue según el SDD.
 
 ## Comprobaciones realizadas y límites
 

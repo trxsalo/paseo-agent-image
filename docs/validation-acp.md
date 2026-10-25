@@ -17,12 +17,12 @@ posteriores de seguridad están en `security-fixes.md`.
   `hermes acp --check`: `Hermes ACP check OK`. Esta comprobación se ejecutó
   como root en un contenedor temporal, sin autenticar un proveedor.
 - SHA-256 del archivo fuente de Hermes incorporado al inventario después de
-  descargarlo y calcularlo localmente.
+  descargarlo y calcularlo en el entorno de validación.
 - `git diff --check` sin errores de espacios.
 
 ## Pendiente en CI y despliegue
 
-- El build completo local se intentó, pero no se completó. Se interrumpió
+- El build completo de esta validación se intentó, pero no se completó. Se interrumpió
   mientras continuaba el `npm install --global` de las CLIs preexistentes;
   todavía no había alcanzado la instalación del nuevo catálogo ACP. No se
   obtuvo una imagen final ni se verificaron todas las recetas contra la base
@@ -31,9 +31,10 @@ posteriores de seguridad están en `security-fixes.md`.
   El workflow ejecuta las pruebas y `paseo-acp check` durante el build.
 - Autenticación y una sesión ACP real por cada proveedor que se vaya a usar.
 - Autenticación persistente después de recrear el contenedor.
-- Diagnóstico del error de namespaces de bubblewrap en el servidor real.
+- Comprobación de compatibilidad con los namespaces de bubblewrap en el host
+  de destino y diagnóstico de errores si se producen.
 - TRAE: instalador oficial inaccesible con HTTP 403 durante la preparación.
   Corust y VT Code: sin distribución Linux ARM64 en el registro consultado.
 
 El inventario de recetas no debe interpretarse como certificación de todos los
-proveedores ni como evidencia de que ya estén disponibles en el servidor.
+proveedores ni como evidencia de su disponibilidad en un despliegue.
