@@ -1,6 +1,6 @@
 # SDD: Entorno persistente de Paseo en Docker
 
-Estado: Propuesta
+Estado: Diseño de referencia; validar su aplicación en cada despliegue.
 
 ## Objetivo
 
@@ -11,15 +11,17 @@ Ejecutar Paseo y sus agentes dentro de Docker con:
 - Permisos limitados y documentados.
 - Instalación, actualización y recuperación reproducibles.
 
-## Evidencia disponible
+## Requisitos del entorno
 
-- La interfaz de Paseo es accesible.
-- La terminal del agente falla dentro del sandbox con:
-  "bwrap: No permissions to create a new namespace".
-- Un comando ejecutado fuera del sandbox del agente,
-  con autorización, funcionó dentro del contenedor.
-- No se ha verificado la configuración actual de volúmenes,
-  usuario, puertos, proveedores ni permisos de Docker.
+- Verificar el acceso a la interfaz y la conexión del cliente al daemon.
+- Verificar volúmenes, usuario, puertos, proveedores y permisos de Docker
+  en cada despliegue.
+- Comprobar que el kernel y las restricciones del runtime permiten el sandbox
+  del agente. El error `bwrap: No permissions to create a new namespace`
+  indica una incompatibilidad que debe diagnosticarse según la sección
+  «Sandbox y terminal».
+- Validar la terminal desde una sesión del agente con la política de sandbox
+  prevista para el despliegue.
 
 ## Arquitectura
 
@@ -85,7 +87,10 @@ Documentar:
 - Copia de seguridad y restauración.
 - Diagnóstico de terminal y permisos.
 
-## Entregables
+## Entregables previstos
+
+Esta lista describe el despliegue de referencia; no todos los archivos se
+incluyen en el repositorio.
 
 - Dockerfile revisado.
 - docker-compose.yml.

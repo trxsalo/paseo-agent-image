@@ -1,7 +1,7 @@
 # Guía de implementación
 
-1. Inventariar el despliegue actual
-   Recoger Dockerfile, Compose, versiones, usuario,
+1. Definir el despliegue de destino
+   Identificar Dockerfile, Compose, versiones, usuario,
    montajes, puertos y proveedores.
 
 2. Respaldar los datos existentes
@@ -38,7 +38,7 @@
    la validación de autenticación y persistencia en el despliegue real.
 
 6. Preparar la imagen
-   Añadir únicamente proveedores y herramientas acordados.
+   Seleccionar los proveedores y herramientas necesarios para el despliegue.
    Fijar versiones y documentar el arranque.
 
    El inventario ACP y las recetas Linux se mantienen en
