@@ -6,10 +6,12 @@
 
 «si hay que actualizar el workflow hazlo»
 
+«el server host es amd64, estonces los build en el worfklow que sean solo para este , ya que demora mucho el de arm»
+
 ## Alcance y decisiones
 
 - Base estable oficial Paseo 0.15.3, fijada por digest multi-arquitectura.
-- Publicación en Docker Hub con etiqueta `latest`, conservando AMD64 y ARM64.
+- Publicación en Docker Hub con etiqueta `latest`, solo AMD64; quitar QEMU del workflow.
 - Una unidad: Dockerfile, configuración de CI y documentación de actualización.
 - Publicar desde `update/paseo-0.15.3` y ejecutar `publish.yml` en esa rama.
 - No desplegar ni reiniciar el contenedor en ejecución (actualmente 0.12.0).
@@ -18,13 +20,14 @@
 ## Estado
 
 Cambios publicados en la rama `update/paseo-0.15.3`.
-Commit de compilación: `4613cd4`.
+Primera compilación multi-arquitectura: commit `4613cd4`.
 
 Workflow lanzado: https://github.com/trxsalo/paseo-agent-image/actions/runs/42559010500
 
-En la última consulta la ejecución estaba en curso. Pasaron las validaciones de
+La ejecución anterior seguía en curso al preparar el cambio a AMD64.
+Se cancelará y se lanzará una nueva ejecución desde el commit con AMD64. Pasaron las validaciones de
 configuración, sintaxis, permisos persistentes, Muse, instalador ACP y límites
-de seguridad del init. Queda pendiente el resultado del build multi-arquitectura
+de seguridad del init. Queda pendiente el resultado del build AMD64
 y de la publicación. Las variables Actions ya están configuradas para publicar
 `docker.io/trxsalo/paseo-agent-clis:latest`.
 
@@ -40,7 +43,8 @@ y de la publicación. Las variables Actions ya están configuradas para publicar
 
 ## Aceptación y próximo paso
 
-Consultar `gh run view 42559010500` para comprobar el resultado. Si falla, leer
+Consultar la ejecución más reciente de `publish.yml` en `update/paseo-0.15.3`
+para comprobar el resultado (la anterior se cancela por el cambio a AMD64). Si falla, leer
 los logs y corregir la causa antes de relanzar. Si pasa, registrar el digest
 publicado. No afirmar una compilación correcta antes de que termine CI.
 El merge de la rama y el despliegue del contenedor quedan pendientes.
