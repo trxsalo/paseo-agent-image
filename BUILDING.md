@@ -43,7 +43,7 @@ be verified. Existing volumes and file contents are preserved.
 
 ## GitHub Actions workflow
 
-The repository includes a manually triggered multi-architecture build workflow.
+The repository includes a manually triggered AMD64 build workflow.
 Configure the following under **Settings → Secrets and variables → Actions**:
 
 - Variable `DOCKERHUB_USERNAME`: the Docker Hub account used to publish.
@@ -68,7 +68,8 @@ before deployment and retain the previous image digest for rollback. A transitio
 from Paseo 0.12.0 requires recreating the container; terminal processes will stop.
 Agent recovery in newer Paseo versions is opt-in.
 
-The workflow validates the startup wrapper and provider smoke checks, runs the ownership test, then builds and pushes `linux/amd64` and `linux/arm64`.
+The workflow validates the startup wrapper and provider smoke checks, runs the ownership test, then builds and pushes `linux/amd64` natively on the GitHub runner. ARM64 and
+QEMU are excluded from this workflow to reduce build time.
 
 ## Build and publish locally
 
@@ -76,7 +77,7 @@ If using another CI runner or local Buildx instead, authenticate to Docker Hub t
 
 ```bash
 docker buildx build \
-  --platform linux/amd64,linux/arm64 \
+  --platform linux/amd64 \
   --tag docker.io/your-namespace/paseo-agent-clis:your-version \
   --push .
 ```
