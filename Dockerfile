@@ -1,8 +1,10 @@
 # Inherit Paseo's official multi-architecture image, pinned to the digest
-# verified on 2026-10-21. Keep the base entrypoint and final user behavior.
-FROM ghcr.io/getpaseo/paseo@sha256:0d17dd75a51c591907a4bbcd505013102048246a0cd6e824de3b38a6057ff862 AS runtime-base
+# for Paseo 0.15.3, verified on 2026-11-09. Keep the base entrypoint behavior.
+FROM ghcr.io/getpaseo/paseo@sha256:57048c43a2c2988434273c7f8a4b25aa585bca6c1720493ae52e2fa91497b99a AS runtime-base
 
 USER root
+
+RUN test "$(paseo --version)" = "0.15.3"
 
 ARG OMP_VERSION=18.12.6
 ARG ANTIGRAVITY_VERSION=1.4.4

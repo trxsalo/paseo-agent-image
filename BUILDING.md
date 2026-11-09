@@ -1,6 +1,6 @@
 # Paseo image with native provider CLIs and GitHub CLI
 
-This derived image keeps the official Paseo multi-architecture base pinned to the digest verified on 2026-10-21. It installs Codex CLI `0.163.0`, Claude Code `2.1.306`, GitHub Copilot CLI `1.0.102`, OpenCode `2.1.2`, Pi `1.4.0`, Oh My Pi `18.12.6`, Antigravity CLI `1.4.4`, and GitHub CLI `2.103.0`. Muse Code's official launcher is pinned by SHA-256; a small wrapper stages it in the service user's writable `/home/paseo/.local/bin` on first use, where the launcher downloads the current stable Muse binary. This avoids adding several hundred megabytes to each image architecture.
+This derived image keeps the official Paseo multi-architecture base pinned to the digest for Paseo `0.15.3`, verified on 2026-11-09. It installs Codex CLI `0.163.0`, Claude Code `2.1.306`, GitHub Copilot CLI `1.0.102`, OpenCode `2.1.2`, Pi `1.4.0`, Oh My Pi `18.12.6`, Antigravity CLI `1.4.4`, and GitHub CLI `2.103.0`. Muse Code's official launcher is pinned by SHA-256; a small wrapper stages it in the service user's writable `/home/paseo/.local/bin` on first use, where the launcher downloads the current stable Muse binary. This avoids adding several hundred megabytes to each image architecture.
 
 The image also installs the Linux-compatible agents from the reviewed ACP catalog
 snapshot in `docker/acp-catalog.lock.json`, including Hermes `v0.22.4` with its ACP
@@ -48,14 +48,25 @@ Configure the following under **Settings → Secrets and variables → Actions**
 
 - Variable `DOCKERHUB_USERNAME`: the Docker Hub account used to publish.
 - Variable `DOCKERHUB_IMAGE`: the full image reference, including a version tag,
-  for example `docker.io/your-namespace/paseo-agent-clis:your-version`.
+  for example `docker.io/your-namespace/paseo-agent-clis:latest`.
 - Secret `DOCKERHUB_TOKEN`: a Docker Hub access token with permission to push to
   the selected image repository.
 
 Create the Docker Hub repository before publishing and choose its visibility
 according to your distribution requirements. Private images require pull
 credentials on the deployment host. Run **Build and publish Paseo CLI image**
-from the Actions tab after configuring these values. Never commit credentials.
+from the Actions tab after configuring these values. Select the branch containing
+the Dockerfile update before running the workflow. Never commit credentials.
+
+The Dockerfile checks the base CLI version before installing providers. Publishing
+runs are serialized, and the Actions summary records the image digest and source
+commit. Using `:latest` for the published image does not change the digest-pinned
+upstream base; update that digest deliberately when upgrading Paseo.
+
+Updating the image does not update running containers. Back up persistent state
+before deployment and retain the previous image digest for rollback. A transition
+from Paseo 0.12.0 requires recreating the container; terminal processes will stop.
+Agent recovery in newer Paseo versions is opt-in.
 
 The workflow validates the startup wrapper and provider smoke checks, runs the ownership test, then builds and pushes `linux/amd64` and `linux/arm64`.
 

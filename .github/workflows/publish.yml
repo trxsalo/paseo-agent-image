@@ -6,12 +6,24 @@ on:
 permissions:
   contents: read
 
+concurrency:
+  group: publish-paseo-image
+  cancel-in-progress: false
+
 jobs:
   build-and-push:
     runs-on: ubuntu-latest
     steps:
       - name: Check out source
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Validate publishing configuration
+        env:
+          DOCKERHUB_USERNAME: ${{ vars.DOCKERHUB_USERNAME }}
+          DOCKERHUB_IMAGE: ${{ vars.DOCKERHUB_IMAGE }}
+        run: |
+          test -n "$DOCKERHUB_USERNAME" || { echo 'Missing Actions variable DOCKERHUB_USERNAME'; exit 1; }
+          test -n "$DOCKERHUB_IMAGE" || { echo 'Missing Actions variable DOCKERHUB_IMAGE'; exit 1; }
 
       - name: Validate permission entrypoint syntax
         run: |
@@ -46,6 +58,7 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Build and push multi-architecture image
+        id: publish
         uses: docker/build-push-action@c3c9e263c25d99ce0380d002d59b67737d91b0dc # v7.4.0
         with:
           context: .
@@ -55,3 +68,15 @@ jobs:
           tags: ${{ vars.DOCKERHUB_IMAGE }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
+
+      - name: Summarize published image
+        env:
+          IMAGE: ${{ vars.DOCKERHUB_IMAGE }}
+          DIGEST: ${{ steps.publish.outputs.digest }}
+        run: |
+          {
+            echo 'Paseo base version: 0.15.3'
+            printf 'Image: `%s`\n\n' "$IMAGE"
+            printf 'Digest: `%s`\n' "$DIGEST"
+            printf 'Source commit: `%s`\n' "$GITHUB_SHA"
+          } >> "$GITHUB_STEP_SUMMARY"
