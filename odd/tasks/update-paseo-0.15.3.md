@@ -17,7 +17,16 @@
 
 ## Estado
 
-Cambios preparados y revisados; pendientes commit, push y ejecución de CI.
+Cambios publicados en la rama `update/paseo-0.15.3`.
+Commit de compilación: `4613cd4`.
+
+Workflow lanzado: https://github.com/trxsalo/paseo-agent-image/actions/runs/42559010500
+
+En la última consulta la ejecución estaba en curso. Pasaron las validaciones de
+configuración, sintaxis, permisos persistentes, Muse, instalador ACP y límites
+de seguridad del init. Queda pendiente el resultado del build multi-arquitectura
+y de la publicación. Las variables Actions ya están configuradas para publicar
+`docker.io/trxsalo/paseo-agent-clis:latest`.
 
 ## Verificación
 
@@ -31,10 +40,10 @@ Cambios preparados y revisados; pendientes commit, push y ejecución de CI.
 
 ## Aceptación y próximo paso
 
-Ejecutar pruebas del instalador, sintaxis y revisión del diff. Publicar la rama,
-configurar `DOCKERHUB_USERNAME` y `DOCKERHUB_IMAGE`, lanzar el workflow y verificar
-su resultado en GitHub Actions. No afirmar una compilación correcta antes de que
-termine CI; registrar el enlace de ejecución y cualquier bloqueo.
+Consultar `gh run view 42559010500` para comprobar el resultado. Si falla, leer
+los logs y corregir la causa antes de relanzar. Si pasa, registrar el digest
+publicado. No afirmar una compilación correcta antes de que termine CI.
+El merge de la rama y el despliegue del contenedor quedan pendientes.
 
 ## Riesgos y recuperación
 
